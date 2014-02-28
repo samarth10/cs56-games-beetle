@@ -12,11 +12,11 @@ import javax.swing.*;
 public class Run{
 
         public static void main(String[] args){
-        theGUI gui = new theGUI();
+        beetleGUI gui = new beetleGUI();
         gui.setUpHomeScreen();
 
-	//Player tests
-	//Player p = new Player();
+	//BPlayer tests
+	//BPlayer p = new BPlayer();
       	//JFrame frame = new JFrame();
       	//frame.setSize(500,500);
       	//frame.setBackground(Color.WHITE);
