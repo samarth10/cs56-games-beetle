@@ -12,46 +12,8 @@ import javax.swing.*;
 public class Run{
 
         public static void main(String[] args){
-        beetleGUI gui = new beetleGUI();
+        startGUI gui = new startGUI();
         gui.setUpHomeScreen();
-
-	//BPlayer tests
-	//BPlayer p = new BPlayer();
-      	//JFrame frame = new JFrame();
-      	//frame.setSize(500,500);
-      	//frame.setBackground(Color.WHITE);
-      	//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      	//PaintComponent component = new PaintComponent();
-      	//frame.add(component);
-      	//frame.setVisible(true);
-
     }
 }
 
-	/*for(int i=0; i<150; i++){
-	p.roll();
-	System.out.println(p.addPart());
-	System.out.println(""+p.hasWon());}
-	p.roll();
-	System.out.println(p.addPart());
-	p.roll();
-	System.out.println(p.addPart());
-	p.roll();
-	System.out.println(p.addPart());
-	p.roll();
-	System.out.println(p.addPart());
-	p.roll();
-	System.out.println(p.addPart());
-        p.roll();
-        System.out.println(p.addPart());
-        p.roll();
-        System.out.println(p.addPart());
-        p.roll();
-        System.out.println(p.addPart());
-        p.roll();
-        System.out.println(p.addPart());
-        p.roll();
-        System.out.println(p.addPart());
-        p.roll();
-        System.out.println(p.addPart());
-	*/
