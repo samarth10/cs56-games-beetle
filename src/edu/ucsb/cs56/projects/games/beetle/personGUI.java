@@ -27,6 +27,8 @@ import javax.swing.*;
 public class personGUI {
     JFrame frame = new JFrame("Person Dice Rolling Game");
     JPanel thePanel = new JPanel(new GridBagLayout());
+    DrawComponent pComponent = new DrawComponent(3, 0, 0, 0, 0, 0, 0);
+    DrawPanel cPanel = new DrawPanel(3, 0, 0, 0, 0, 0, 0);
     JLabel title = new JLabel("Person Dice Rolling Game!");
     JLabel pNeed = new JLabel("Player still needs");
     JLabel body = new JLabel("Body: ");
@@ -132,7 +134,12 @@ public class personGUI {
         gc.gridx=1;
 	pT.setEditable(false);
         frame.add(pT, gc);
-        
+
+	//player drawing panel
+	gc.gridx=0;
+	gc.gridy=8;
+	frame.add(pComponent, gc);
+
         //computer score
 	gc.gridx=4;
 	gc.gridy=1;
@@ -202,6 +209,19 @@ public class personGUI {
             computer.roll();
             text.append("PPlayer rolled: " + player.getRoll() + "\n");
             text.append("PPlayer "+player.addPart());
+
+	    // repaint player DrawPanel
+	    pComponent.setParts( 
+			    player.getBody(), 
+			    player.getHead(),
+			    player.getLegs(),
+			    player.getEyes(),
+			    player.getMouth(),
+			    player.getArms() 
+			     );
+	    pComponent.repaint();
+	    // end repaint player DrawPanel
+
             text.append("Computer rolled: " + computer.getRoll() + "\n");
             text.append("Computer "+computer.addPart());
             text.append("\n");

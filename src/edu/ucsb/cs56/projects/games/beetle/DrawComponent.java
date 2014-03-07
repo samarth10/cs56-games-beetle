@@ -17,7 +17,27 @@ import java.awt.Dimension;
 import java.io.*;
 import javax.swing.*;
 
-class DrawPanel extends JPanel 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JPanel;
+import javax.swing.JComponent;
+
+// the four tools things we'll use to draw
+
+import java.awt.geom.Line2D;  // single lines
+import java.awt.geom.Ellipse2D;  // ellipses and circles
+import java.awt.Rectangle;  // squares and rectangles
+import java.awt.geom.GeneralPath; // combinations of lines and curves
+
+
+import java.awt.geom.Rectangle2D; // for rectangles drawing with Doubles
+
+import java.awt.Color; // class for Colors
+import java.awt.Shape; // Shape interface
+import java.awt.Stroke; // Stroke interface
+import java.awt.BasicStroke; // class that implements stroke
+
+class DrawComponent extends JComponent 
 {
     private int whichOne=0;
     private int one=0;
@@ -27,7 +47,7 @@ class DrawPanel extends JPanel
     private int five=0;
     private int six=0;
 
-    public DrawPanel(int whichOne, int one, int two, int three, int four, int five, int six)
+    public DrawComponent(int whichOne, int one, int two, int three, int four, int five, int six)
     {
 	this.whichOne = whichOne;
 	this.one = one;
@@ -52,15 +72,15 @@ class DrawPanel extends JPanel
     {
 	Graphics2D g2 = (Graphics2D) g;
 
-	switch(this.whichOne) {
+	//	switch(this.whichOne) {
 
-        case 3:
+	    //case 3:
 	    PDraw p = new PDraw(this.one, this.two, this.three, this.four, this.five, this.six);
 	    g2.draw(p);
-	    break;
+	    //break;
 
 
-	} // switch
+	    //	} // switch
 
 
     } // paintComponent

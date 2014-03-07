@@ -16,6 +16,7 @@ import java.awt.Dimension;
 import java.io.*;
 import javax.swing.*;
 
+import java.awt.geom.GeneralPath;
 import java.awt.Graphics2D;
 import java.awt.geom.Line2D;  // single lines
 import java.awt.geom.Ellipse2D;  // ellipses and circles
@@ -28,7 +29,9 @@ import java.awt.Color; // class for Colors
 import java.awt.Stroke;
 import java.awt.BasicStroke;
 
-public class PDraw implements Shape
+import edu.ucsb.cs56.projects.games.utilities.GeneralPathWrapper;
+
+public class PDraw extends GeneralPathWrapper implements Shape
 {
     private int body=0;
     private int head=0;
@@ -39,9 +42,10 @@ public class PDraw implements Shape
 
     public PDraw(int body, int head, int legs, int eyes, int mouth, int arms)
     {
-	if(body == 1) {
-	    Line2D b = new Line2D(10,10,10,14);
-	}
+	Line2D.Double b = new Line2D.Double(50,50,50,150);
+
+	GeneralPath wholePerson = this.get();
+	wholePerson.append(b, false);
     }
 }
 
