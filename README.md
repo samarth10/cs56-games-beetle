@@ -1,7 +1,7 @@
 cs56-games-beetle
 =================
 A dice rolling game that you can play against a computer or another person.
-The idea is to piece together a body by rolling the correct number.
+The idea is to piece together an animal body by rolling the correct number.
 There are three animals to choose from.
 
 Beetle:
