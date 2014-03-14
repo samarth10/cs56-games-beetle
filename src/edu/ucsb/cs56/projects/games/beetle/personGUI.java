@@ -81,6 +81,54 @@ public class personGUI {
     
     
     public void setUpHomeScreen(){
+
+	Object[] options = {"Single Player",
+			    "Two Players"};
+	int n = JOptionPane.showOptionDialog(frame,
+					     "Please Select One",
+					     "Please Select One",
+					     JOptionPane.YES_NO_OPTION,
+					     JOptionPane.QUESTION_MESSAGE,
+					     null,     //do not use a custom Icon
+					     options,  //the titles of buttons
+					     options[0]); //default button title
+
+	if(n == 0) {
+	    player.setName( (String)JOptionPane.showInputDialog(
+								frame,
+								"Enter Player 1 Name\n",
+								"Player 1",
+								JOptionPane.PLAIN_MESSAGE,
+								null,
+								null,
+								"Player 1") );
+
+	    computer.setName("Computer");
+	}
+
+	else if(n == 1) {
+	    player.setName( (String)JOptionPane.showInputDialog(
+								frame,
+								"Enter Player 1 Name\n",
+								"Player 1",
+								JOptionPane.PLAIN_MESSAGE,
+								null,
+								null,
+								"Player 1") );
+	    
+	    computer.setName( (String)JOptionPane.showInputDialog(
+								  frame,
+								  "Enter Player 2 Name\n",
+								  "Player 2",
+								  JOptionPane.PLAIN_MESSAGE,
+								  null,
+								  null,
+								  "Player 2") );
+	}
+	
+	pNeed = new JLabel(player.getName() + " still needs");
+	cNeed = new JLabel(computer.getName() + " still needs");
+	
         text.setEditable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
@@ -209,8 +257,8 @@ public class personGUI {
         public void actionPerformed(ActionEvent event){
             player.roll();
             computer.roll();
-            text.append("PPlayer rolled: " + player.getRoll() + "\n");
-            text.append("PPlayer "+player.addPart());
+            text.append(player.getName() + " rolled: " + player.getRoll() + "\n");
+            text.append(player.getName() + " " + player.addPart());
 
 	    // repaint player DrawPanel
 	    pComponent.setParts( 
@@ -224,8 +272,8 @@ public class personGUI {
 	    pComponent.repaint();
 	    // end repaint player DrawPanel
 
-            text.append("Computer rolled: " + computer.getRoll() + "\n");
-            text.append("Computer "+computer.addPart());
+            text.append(computer.getName() + " rolled: " + computer.getRoll() + "\n");
+            text.append(computer.getName() + " " + computer.addPart());
             text.append("\n");
             pB.setText("" +(pBN - player.getBody()));
             pH.setText("" +(pHN - player.getHead()));
@@ -241,7 +289,7 @@ public class personGUI {
             cT.setText("" +(cTN - computer.getArms()));
             
             if(player.hasWon()){
-                text.append("YOU WIN!!\n\n");
+                text.append(player.getName() + " WINS!!\n\n");
                 player.reset();
                 computer.reset();
                 pB.setText("1");
@@ -270,7 +318,7 @@ public class personGUI {
                 cTN = 2;    
 	}	
             if(computer.hasWon()){
-                text.append("YOU LOST!!\n\n");
+                text.append(computer.getName() + " WINS!!\n\n");
                 player.reset();
                 computer.reset();
                 pB.setText("1");

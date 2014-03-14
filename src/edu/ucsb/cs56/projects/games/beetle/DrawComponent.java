@@ -76,7 +76,7 @@ class DrawComponent extends JComponent
 
 	    //case 3:
 	    PDraw p = new PDraw(this.one, this.two, this.three, this.four, this.five, this.six);
-	    p.setVisible(true);
+	    //p.setVisible(true);
 	    g2.draw(p);
 	    //break;
 
