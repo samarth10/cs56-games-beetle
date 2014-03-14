@@ -72,6 +72,7 @@ public class personGUI {
     JLabel info2 = new JLabel("4: Eyes    5: Mouth      6: Arms");
     JButton roll = new JButton("Roll");
     JButton exit = new JButton("Exit");
+    JButton testButton = new JButton("TEST");
     JTextArea text = new JTextArea(20,20);
     JScrollPane scroll = new JScrollPane(text);
     PPlayer player = new PPlayer();
@@ -139,6 +140,7 @@ public class personGUI {
 	gc.gridx=0;
 	gc.gridy=8;
 	frame.add(pComponent, gc);
+	//frame.add(testButton, gc);
 
         //computer score
 	gc.gridx=4;

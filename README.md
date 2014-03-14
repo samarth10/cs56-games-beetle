@@ -13,3 +13,5 @@ The idea is that you need a body first and foremost. Then you can add a tail, le
 The gui allows the user to click "roll" and a random number between 1-6 is generated and it will add the correct parts to the beetle. Then it will automatically do the same for the computer player. The system will notify the user of the piece that have been added and whether or not they won or lost.
 
 ![](http://i.imgur.com/5zEJUCJ.png)
+
+NEED TO UPDATE
