@@ -38,23 +38,29 @@ public class startGUI {
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
-        gc.gridwidth=2;
+        
+	// add title to frame
+	gc.gridwidth=2;
         gc.gridx=2;
         gc.gridy=0;
         frame.add(title, gc);
         
+	// add "Ant" button to launch antGUI
 	gc.gridy=1;
 	ant.addActionListener(new AntListener());
 	frame.add(ant, gc);
 
+	// add "Beetle" button to launch beetleGUI
         gc.gridy=2;
 	beetle.addActionListener(new BeetleListener());
 	frame.add(beetle, gc);
 
+	// add "Person" button to launch personGUI
 	gc.gridy=3;
 	person.addActionListener(new PersonListener());
 	frame.add(person, gc);
 
+	// add exit button
 	gc.gridy=4;
         exit.addActionListener(new ExitListener());
         frame.add(exit, gc);

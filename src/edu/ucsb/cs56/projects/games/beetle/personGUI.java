@@ -44,6 +44,7 @@ public class personGUI {
     JLabel cEyes = new JLabel("Eyes: ");
     JLabel cMouth = new JLabel("Mouth: ");
     JLabel cArms = new JLabel("Arms: ");
+    // counter text fields
     JTextField pB = new JTextField("1",10);
     JTextField pH = new JTextField("1",10);
     JTextField pL = new JTextField("2",10);
@@ -56,6 +57,7 @@ public class personGUI {
     JTextField cE = new JTextField("2",10);
     JTextField cA = new JTextField("1",10);
     JTextField cT = new JTextField("2",10);
+    // counters
     private int pBN = 1; 
     private int pHN = 1; 
     private int pLN = 2; 
@@ -81,7 +83,7 @@ public class personGUI {
     
     
     public void setUpHomeScreen(){
-
+	// Option for Single Player or Two Players
 	Object[] options = {"Single Player",
 			    "Two Players"};
 	int n = JOptionPane.showOptionDialog(frame,
@@ -92,7 +94,8 @@ public class personGUI {
 					     null,     //do not use a custom Icon
 					     options,  //the titles of buttons
 					     options[0]); //default button title
-
+	
+	// if Single Player, prompt for Player 1 name & automatically set Player 2 to "Computer"
 	if(n == 0) {
 	    player.setName( (String)JOptionPane.showInputDialog(
 								frame,
@@ -105,7 +108,7 @@ public class personGUI {
 
 	    computer.setName("Computer");
 	}
-
+	// if Two Player, promt for Player 1 name, then Player 2 name and set
 	else if(n == 1) {
 	    player.setName( (String)JOptionPane.showInputDialog(
 								frame,
@@ -126,6 +129,7 @@ public class personGUI {
 								  "Player 2") );
 	}
 	
+	// set player needs JLable to correct names
 	pNeed = new JLabel(player.getName() + " still needs");
 	cNeed = new JLabel(computer.getName() + " still needs");
 	
@@ -133,55 +137,78 @@ public class personGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+
+	// add title to frame
         gc.gridwidth=2;
         gc.gridx=2;
         gc.gridy=0;
         frame.add(title, gc);
+
+	// add text scroll panel to frame
         gc.gridy=1;
         gc.gridheight=8;
         frame.add(scroll, gc);
         
         //player score
+	// add player needs label
         gc.gridwidth=1;
         gc.gridheight=1;
 	gc.gridx=0;
 	gc.gridy=1;
 	frame.add(pNeed, gc);
+
+	// format and add body label
         gc.gridx=0;
         gc.gridy=2;
 	frame.add(body, gc);
         gc.gridx=1;
 	pB.setEditable(false);
+	// add body counter
 	frame.add(pB, gc);
+
+	// format and add head label
         gc.gridx=0;
         gc.gridy=3;
         frame.add(head, gc);
         gc.gridx=1;
 	pH.setEditable(false);
+	// add head counter
         frame.add(pH, gc);
+
+	// format and add legs label
         gc.gridx=0;
         gc.gridy=4;
         frame.add(legs, gc);
         gc.gridx=1;
 	pL.setEditable(false);
+	// add legs counter
         frame.add(pL, gc);
+
+	// format and add eyes label
         gc.gridx=0;
         gc.gridy=5;
         frame.add(eyes, gc);
         gc.gridx=1;
 	pE.setEditable(false);
+	// add eyes counter
         frame.add(pE, gc);
+
+	// format and add mouth label
         gc.gridx=0;
         gc.gridy=6;
         frame.add(mouth, gc);
         gc.gridx=1;
 	pA.setEditable(false);
+	// add mouth counter
         frame.add(pA, gc);
+
+	// format and add arms label
         gc.gridx=0;
         gc.gridy=7;
         frame.add(arms, gc);
         gc.gridx=1;
 	pT.setEditable(false);
+	// add arms counter
         frame.add(pT, gc);
 
 	//player drawing panel
@@ -191,53 +218,77 @@ public class personGUI {
 	//frame.add(testButton, gc);
 
         //computer score
+	// add computer needs label
 	gc.gridx=4;
 	gc.gridy=1;
 	frame.add(cNeed, gc);
+
+	// format and add body label
 	gc.gridx=4;
         gc.gridy=2;
 	frame.add(cBody, gc);
         gc.gridx=5;
 	cB.setEditable(false);
+	// add body counter
         frame.add(cB, gc);
+
+	// format and add head label
         gc.gridx=4;
         gc.gridy=3;
         frame.add(cHead, gc);
         gc.gridx=5;
 	cH.setEditable(false);
+	// add head counter
         frame.add(cH, gc);
+
+	// format and add legs label
         gc.gridx=4;
         gc.gridy=4;
         frame.add(cLegs, gc);
         gc.gridx=5;
 	cL.setEditable(false);
+	// add legs counter
         frame.add(cL, gc);
+
+	// format and add eyes label
         gc.gridx=4;
         gc.gridy=5;
         frame.add(cEyes, gc);
         gc.gridx=5;
 	cE.setEditable(false);
+	// add eyes counter
         frame.add(cE, gc);
+
+	// format and add mouth label
         gc.gridx=4;
         gc.gridy=6;
         frame.add(cMouth, gc);
         gc.gridx=5;
 	cA.setEditable(false);
+	// add mouth counter
         frame.add(cA, gc);
+
+	// format and add arms label
         gc.gridx=4;
         gc.gridy=7;
         frame.add(cArms, gc);
         gc.gridx=5;
 	cT.setEditable(false);
+	// add arms counter
         frame.add(cT, gc);
         
+	// add Roll button
         gc.gridx=2;
         gc.gridy=9;
         roll.addActionListener(new RollListener());
         frame.add(roll, gc);
+
+	// add Exit button
         gc.gridx=3;
         exit.addActionListener(new ExitListener());
         frame.add(exit, gc);
+
+	// format and add information on what roll gets which body part
         gc.gridwidth=2;
         gc.gridx=2;
         gc.gridy=10;
@@ -255,6 +306,7 @@ public class personGUI {
     
     class RollListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
+	    // Roll for both players and append the propper text to the text scroll panel
             player.roll();
             computer.roll();
             text.append(player.getName() + " rolled: " + player.getRoll() + "\n");
@@ -275,6 +327,8 @@ public class personGUI {
             text.append(computer.getName() + " rolled: " + computer.getRoll() + "\n");
             text.append(computer.getName() + " " + computer.addPart());
             text.append("\n");
+
+	    // set counter text on GUI
             pB.setText("" +(pBN - player.getBody()));
             pH.setText("" +(pHN - player.getHead()));
             pL.setText("" +(pLN - player.getLegs()));
@@ -288,10 +342,14 @@ public class personGUI {
             cA.setText("" +(cAN - computer.getMouth()));
             cT.setText("" +(cTN - computer.getArms()));
             
+	    // message and reset if Player 1 wins
             if(player.hasWon()){
                 text.append(player.getName() + " WINS!!\n\n");
+		// reset PPlayer objects
                 player.reset();
                 computer.reset();
+
+		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");
                 pL.setText("2");
@@ -304,6 +362,8 @@ public class personGUI {
                 cE.setText("2");
                 cA.setText("1");
 		cT.setText("2");
+
+		// reset counters
 		pBN = 1;
 		pHN = 1;
                 pLN = 2;
@@ -316,11 +376,16 @@ public class personGUI {
                 cEN = 2;
                 cAN = 1;
                 cTN = 2;    
-	}	
+	    }	
+	    
+	    // message and reset if Player 2 wins
             if(computer.hasWon()){
                 text.append(computer.getName() + " WINS!!\n\n");
-                player.reset();
+                // reset PPlayer objects
+		player.reset();
                 computer.reset();
+
+		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");
                 pL.setText("2");
@@ -333,6 +398,8 @@ public class personGUI {
                 cE.setText("2");
                 cA.setText("1");
 		cA.setText("2");
+		
+		// reset counters
                 pBN = 1;
                 pHN = 1;
                 pLN = 2;
