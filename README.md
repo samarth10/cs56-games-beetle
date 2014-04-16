@@ -1,5 +1,12 @@
 cs56-games-beetle
 =================
+
+project history
+===============
+```
+ W14 | bronhuston 5pm | kjih | Roll dice to build a beetle
+```
+
 A dice rolling game that you can play against a computer.
 The idea is to piece together a beetle by rolling the correct number.
 1=body
