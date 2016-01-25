@@ -7,7 +7,7 @@ public class Game{
 	private int[] score = {0,0};
 	public Game(){}
     /**
-        increaseScore takes an index i
+         increaseScore takes an index i
         and adds 1 the array score.
         i = 0 -> player score
         i = 1 -> computer score

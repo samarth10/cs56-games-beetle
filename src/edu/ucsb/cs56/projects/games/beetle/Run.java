@@ -10,8 +10,8 @@ import javax.swing.*;
 */
 
 public class Run{
-
-        public static void main(String[] args){
+    // Start the startGUI
+    public static void main(String[] args){
         startGUI gui = new startGUI();
         gui.setUpHomeScreen();
     }
