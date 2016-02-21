@@ -38,6 +38,7 @@ public class startGUI {
     public void setUpHomeScreen(){
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
+	frame.getContentPane().setBackground(new Color(135, 206, 235));
         GridBagConstraints gc = new GridBagConstraints();
         
 	// add title to frame

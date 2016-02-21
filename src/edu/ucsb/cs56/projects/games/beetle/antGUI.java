@@ -79,6 +79,7 @@ public class antGUI {
     
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players
+	frame.getContentPane().setBackground(new Color(100, 255, 100));
 	Object[] options = {"Single Player",
 			    "Two Players"};
 	int n = JOptionPane.showOptionDialog(frame,

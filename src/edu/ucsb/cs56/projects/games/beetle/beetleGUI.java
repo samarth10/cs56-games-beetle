@@ -81,6 +81,8 @@ public class beetleGUI {
     
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players
+	frame.getContentPane().setBackground(new Color(75, 75, 255));
+	
 	Object[] options = {"Single Player",
 			    "Two Players"};
 	int n = JOptionPane.showOptionDialog(frame,

@@ -78,6 +78,9 @@ public class ladybugGUI {
     
     
     public void setUpHomeScreen(){
+
+	frame.getContentPane().setBackground(new Color(255, 75, 75));
+
 	// Option for Single Player or Two Players
 	Object[] options = {"Single Player",
 			    "Two Players"};

@@ -83,6 +83,9 @@ public class personGUI {
     
     
     public void setUpHomeScreen(){
+
+	frame.getContentPane().setBackground(new Color(255, 222, 173));
+	
 	// Option for Single Player or Two Players
 	Object[] options = {"Single Player",
 			    "Two Players"};
