@@ -339,7 +339,7 @@ public class beetleGUI {
                 cH.setText("1");
                 cL.setText("6");
                 cE.setText("2");
-                cA.setText("1");
+                cA.setText("2");
 		cT.setText("1");
 
 		// reset counters

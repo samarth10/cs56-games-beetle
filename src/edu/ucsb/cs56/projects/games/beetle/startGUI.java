@@ -32,6 +32,7 @@ public class startGUI {
     JButton person = new JButton("Person");
     JButton ant = new JButton("Ant");
     JButton beetle = new JButton("Beetle");
+    JButton ladybug = new JButton("Ladybug");
     JButton exit = new JButton("Exit");
        
     public void setUpHomeScreen(){
@@ -60,8 +61,13 @@ public class startGUI {
 	person.addActionListener(new PersonListener());
 	frame.add(person, gc);
 
-	// add exit button
+	//add "LadyBug" button to launch ladybugGUI
 	gc.gridy=4;
+	ladybug.addActionListener(new LadybugListener());
+	frame.add(ladybug, gc);
+	
+	// add exit button
+	gc.gridy=5;
         exit.addActionListener(new ExitListener());
         frame.add(exit, gc);
 
@@ -99,6 +105,14 @@ public class startGUI {
 	}
     }//end PersonListener
 
+    class LadybugListener implements ActionListener {
+	public void actionPerformed(ActionEvent event) {
+	    ladybugGUI lbgui = new ladybugGUI();
+	    lbgui.setUpHomeScreen();
+	    frame.setVisible(false);
+	}
+    }//end LadybugListener
+    
     class ExitListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		System.exit(0);
