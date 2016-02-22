@@ -311,7 +311,7 @@ public class personGUI {
 
         //frame.getContentPane().add(thePanel);
         frame.pack();
-        frame.setSize(800,800);
+        frame.setSize(900,600);
         frame.setVisible(true);
         
         
