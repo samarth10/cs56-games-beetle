@@ -79,7 +79,13 @@ public class antGUI {
     //labels to track score
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
+    public antGUI(){
 
+    }
+    public antGUI(int playerScore, int computerScore){
+        game.setScore(0, playerScore);
+        game.setScore(1, computerScore);
+    }
     
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players
@@ -336,7 +342,7 @@ public class antGUI {
 	    // message and reset if Player 1 wins
             if(player.hasWon()){
                frame.setVisible(false);
-               exitGUI exit = new exitGUI();
+                exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
                 exit.setVisible(true);
         
                 text.append(player.getName() + " WINS!!\n\n");
@@ -377,9 +383,8 @@ public class antGUI {
 	    // message and reset if Player 2 wins
             if(computer.hasWon()){
 
-                frame.setVisible(false);
-                
-                exitGUI exit = new exitGUI();
+                frame.setVisible(false); 
+                exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
                 exit.setVisible(true);
 
                 text.append(computer.getName() + " WINS!!\n\n");

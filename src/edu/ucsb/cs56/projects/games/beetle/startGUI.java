@@ -34,7 +34,16 @@ public class startGUI {
     JButton beetle = new JButton("Beetle");
     JButton ladybug = new JButton("Ladybug");
     JButton exit = new JButton("Exit");
-       
+    private int playerScore=0;
+    private int computerScore=0;
+
+    public startGUI(){
+
+    }
+    public startGUI(int playerScore, int computerScore){
+    	playerScore = playerScore;
+    	computerScore = computerScore;
+    }
     public void setUpHomeScreen(){
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
@@ -84,9 +93,17 @@ public class startGUI {
 
     class AntListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
+	   if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	   	antGUI agui = new antGUI(startGUI.this.playerScore, startGUI.this.computerScore);
+	    agui.setUpHomeScreen();
+	    frame.setVisible(false);
+	    }
+	    else{
 	    antGUI agui = new antGUI();
 	    agui.setUpHomeScreen();
 	    frame.setVisible(false);
+	}
+
 	}
     }//end AntListener
     

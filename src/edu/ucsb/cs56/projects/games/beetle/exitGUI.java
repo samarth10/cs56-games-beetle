@@ -20,9 +20,13 @@ public class exitGUI extends JFrame{
 	private JButton playAgain;
 	private JButton exit;
 	private JPanel panel = new JPanel();
+	int playerScore = 0;
+	int computerScore = 0;
+	public exitGUI(int playerScore, int computerScore){
 
-	public exitGUI(){
 		super("Exit Menu");
+		this.playerScore = playerScore;
+		this.computerScore = computerScore;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playAgain = new JButton("Play Again");
 		exit = new JButton("Close Game");
@@ -37,7 +41,7 @@ public class exitGUI extends JFrame{
 
 	class playAgainListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
-			startGUI gui = new startGUI();
+			startGUI gui = new startGUI(playerScore, computerScore);
         	gui.setUpHomeScreen();
 		}
 	}

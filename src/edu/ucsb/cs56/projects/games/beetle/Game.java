@@ -15,6 +15,9 @@ public class Game{
 	public void increaseScore(int i){
         this.score[i]++;
     }
+    public void setScore(int person, int score){
+        this.score[person] = score;
+    }
     public int getScore(int i){
 		return score[i];
 }
