@@ -45,7 +45,9 @@ public class exitGUI extends JFrame{
 	class playAgainListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			startGUI gui = new startGUI(exitGUI.this.playerScore, exitGUI.this.computerScore);
-        	gui.setUpHomeScreen();
+
+			gui.setUpHomeScreen();
+			panel.getRootPane().getParent().setVisible(false);
 		}
 	}
 	

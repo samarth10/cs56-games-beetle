@@ -356,7 +356,7 @@ public class ladybugGUI {
                 game.increaseScore(0);
                 exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
                 exit.setVisible(true);
-
+		frame.setVisible(false);
                 player.reset();
                 computer.reset();
         //update player score
@@ -398,6 +398,7 @@ public class ladybugGUI {
                 game.increaseScore(1);
                 exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
                 exit.setVisible(true);
+		frame.setVisible(false);
                 player.reset();
                 computer.reset();
 		//update computer score
