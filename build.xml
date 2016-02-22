@@ -24,7 +24,7 @@
 </target>
 
 <target name="run" depends="compile" description="run program">
-  	<java classname="${mainClass}" classpath="build/edu/ucsb/cs56/projects/games" fork="true" />
+  	<java classname="${mainClass}" classpath="build" fork="true" />
 </target>
 
 <target name="clean" description="delete unnecessary files and directories">

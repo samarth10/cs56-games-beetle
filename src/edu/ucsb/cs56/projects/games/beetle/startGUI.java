@@ -41,8 +41,8 @@ public class startGUI {
 
     }
     public startGUI(int playerScore, int computerScore){
-    	playerScore = playerScore;
-    	computerScore = computerScore;
+    	this.playerScore = playerScore;
+    	this.computerScore = computerScore;
     }
     public void setUpHomeScreen(){
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -109,25 +109,46 @@ public class startGUI {
     
     class BeetleListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
+		if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	   	beetleGUI bgui = new beetleGUI(startGUI.this.playerScore, startGUI.this.computerScore);
+	    agui.setUpHomeScreen();
+	    frame.setVisible(false);
+	    }
+	    else{
 	    beetleGUI bgui = new beetleGUI();
 	    bgui.setUpHomeScreen();
 	    frame.setVisible(false);
+	}
 	}
     }//end BeetleListener
 
     class PersonListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
+		if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	   	personGUI pgui = new personGUI(startGUI.this.playerScore, startGUI.this.computerScore);
+	    pgui.setUpHomeScreen();
+	    frame.setVisible(false);
+	    }
+	    else{
 	    personGUI pgui = new personGUI();
 	    pgui.setUpHomeScreen();
 	    frame.setVisible(false);
+	}
 	}
     }//end PersonListener
 
     class LadybugListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
+		if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	   	ladybugGUI lbgui = new ladybugGUI(startGUI.this.playerScore, startGUI.this.computerScore);
+	    lbgui.setUpHomeScreen();
+	    frame.setVisible(false);
+	    }
+	    else{
 	    ladybugGUI lbgui = new ladybugGUI();
 	    lbgui.setUpHomeScreen();
 	    frame.setVisible(false);
+	}
 	}
     }//end LadybugListener
     

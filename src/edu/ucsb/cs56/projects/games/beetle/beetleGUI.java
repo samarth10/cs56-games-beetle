@@ -340,10 +340,12 @@ public class beetleGUI {
             if(player.hasWon()){
                 text.append(player.getName() + " WINS!!\n\n");
 		// reset BPlayer objects
+                game.increaseScore(0);
+                exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
+                exit.setVisible(true);
                 player.reset();
                 computer.reset();
                 //update player score
-                game.increaseScore(0);
                  playerScore.setText(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
 
 		// reset counter text fields
@@ -378,11 +380,13 @@ public class beetleGUI {
             if(computer.hasWon()){
                 text.append(computer.getName() + " WINS!!\n\n");
 		// reset BPlayer objects
+                game.increaseScore(1);
+                exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
+                exit.setVisible(true);
                 player.reset();
                 computer.reset();
 
                 //update computer score
-                game.increaseScore(1);
                  computerScore.setText(computer.getName() + " has won: " + game.getScore(1) + " game(s)" );
 
 

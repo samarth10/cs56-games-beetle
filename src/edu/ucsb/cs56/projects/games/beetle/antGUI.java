@@ -342,6 +342,7 @@ public class antGUI {
 	    // message and reset if Player 1 wins
             if(player.hasWon()){
                frame.setVisible(false);
+                game.increaseScore(0);
                 exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
                 exit.setVisible(true);
         
@@ -349,7 +350,6 @@ public class antGUI {
 		// reset APlayer objects
                 player.reset();
                 computer.reset();
-                game.increaseScore(0);
                 playerScore.setText(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
 		// reset counter text fields
                 pB.setText("1");
@@ -384,6 +384,7 @@ public class antGUI {
             if(computer.hasWon()){
 
                 frame.setVisible(false); 
+                game.increaseScore(1);
                 exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
                 exit.setVisible(true);
 
@@ -391,8 +392,7 @@ public class antGUI {
 		// reset APlayer objects
                 player.reset();
                 computer.reset();
-		        game.increaseScore(1);
-                computerScore.setText("    " + computer.getName() + " has won: " + game.getScore(1) + " game(s)");
+		        computerScore.setText("    " + computer.getName() + " has won: " + game.getScore(1) + " game(s)");
 		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");
