@@ -76,6 +76,10 @@ public class antGUI {
     APlayer computer = new APlayer();
     Game game = new Game();
     
+    //labels to track score
+    JLabel playerScore = new JLabel("Player has won: ");
+    JLabel computerScore = new JLabel("Computer has won: ");
+
     
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players
@@ -133,8 +137,9 @@ public class antGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
-
-	// add title to frame
+    playerScore = new JLabel(player.getName() + " has won: " + player.getWins() + " game(s)" );
+	computerScore = new JLabel("    " + computer.getName() + " has won: " + computer.getWins() + " game(s)");
+    // add title to frame
         gc.gridwidth=2;
         gc.gridx=2;
         gc.gridy=0;
@@ -206,6 +211,11 @@ public class antGUI {
 	pT.setEditable(false);
 	// add abdomen counter
         frame.add(pT, gc);
+
+    //format and add player 1 score
+        gc.gridx = 0;
+        gc.gridy = 8;
+        frame.add(playerScore, gc);
         
         //computer score
 	// add computer needs label
@@ -266,6 +276,10 @@ public class antGUI {
 	cT.setEditable(false);
 	// add abdomen counter
         frame.add(cT, gc);
+    //add computer score
+        gc.gridx = 4;
+        gc.gridy = 8;
+        frame.add(computerScore, gc);
         
 	// add Roll button
         gc.gridx=2;
@@ -288,7 +302,7 @@ public class antGUI {
 
         //frame.getContentPane().add(thePanel);
         frame.pack();
-        frame.setSize(800,800);
+        frame.setSize(900,600);
         frame.setVisible(true);
         
         
@@ -325,7 +339,8 @@ public class antGUI {
 		// reset APlayer objects
                 player.reset();
                 computer.reset();
-
+                player.setWins(player.getWins() + 1);
+                playerScore.setText(player.getName() + " has won: " + player.getWins() + " game(s)" );
 		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");
@@ -361,7 +376,8 @@ public class antGUI {
 		// reset APlayer objects
                 player.reset();
                 computer.reset();
-		
+		        computer.setWins(computer.getWins() + 1);
+                computerScore.setText("    " + computer.getName() + " has won: " + computer.getWins() + " game(s)");
 		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");
