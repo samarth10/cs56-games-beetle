@@ -17,6 +17,12 @@ public class LPlayer{
     private int eyes=0;
     private int antenna=0;
     private int body=0;
+
+    /**
+        Keeps track of the # of wins
+    */
+
+    private int wins=0;
     
     /**
         The APlayer constructor takes no arguments 
@@ -176,5 +182,12 @@ public class LPlayer{
 	public void draw(){
 	
 	}
+    public void setWins(int wins){
+        this.wins = wins;
+    }
+    public int getWins(){
+        return this.wins;
+    }
+
 
 }//end LPlayer	

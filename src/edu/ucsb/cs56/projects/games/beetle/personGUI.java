@@ -80,6 +80,9 @@ public class personGUI {
     PPlayer player = new PPlayer();
     PPlayer computer = new PPlayer();
     Game game = new Game();
+
+    JLabel playerScore = new JLabel("Player has won: ");
+    JLabel computerScore = new JLabel("Computer has won: ");
     
     
     public void setUpHomeScreen(){
@@ -135,7 +138,9 @@ public class personGUI {
 	// set player needs JLable to correct names
 	pNeed = new JLabel(player.getName() + " still needs");
 	cNeed = new JLabel(computer.getName() + " still needs");
-	
+	playerScore = new JLabel(player.getName() + " has won: " + player.getWins() + " game(s)" );
+    computerScore = new JLabel("    " + computer.getName() + " has won: " + computer.getWins() + " game(s)");
+
         text.setEditable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
@@ -212,12 +217,12 @@ public class personGUI {
         gc.gridx=1;
 	pT.setEditable(false);
 	// add arms counter
-        frame.add(pT, gc);
+    frame.add(pT, gc);
 
 	//player drawing panel
-	gc.gridx=0;
-	gc.gridy=8;
-	frame.add(pComponent, gc);
+	gc.gridx = 0;
+    gc.gridy = 8;
+    frame.add(playerScore, gc);
 	//frame.add(testButton, gc);
 
         //computer score
@@ -279,6 +284,11 @@ public class personGUI {
 	cT.setEditable(false);
 	// add arms counter
         frame.add(cT, gc);
+
+    //add computer score
+        gc.gridx = 4;
+        gc.gridy = 8;
+        frame.add(computerScore, gc);
         
 	// add Roll button
         gc.gridx=2;
@@ -351,6 +361,9 @@ public class personGUI {
 		// reset PPlayer objects
                 player.reset();
                 computer.reset();
+        //update player score
+        player.setWins(player.getWins() + 1);
+        playerScore.setText(player.getName() + " has won: " + player.getWins() + " game(s)" );
 
 		// reset counter text fields
                 pB.setText("1");
@@ -385,8 +398,12 @@ public class personGUI {
             if(computer.hasWon()){
                 text.append(computer.getName() + " WINS!!\n\n");
                 // reset PPlayer objects
-		player.reset();
+		        player.reset();
                 computer.reset();
+
+                //update computer score
+                computer.setWins(computer.getWins() + 1);
+                computerScore.setText(computer.getName() + " has won: " + computer.getWins() + " game(s)" );
 
 		// reset counter text fields
                 pB.setText("1");

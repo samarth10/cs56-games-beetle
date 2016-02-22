@@ -75,6 +75,9 @@ public class ladybugGUI {
     LPlayer player = new LPlayer();
     LPlayer computer = new LPlayer();
     Game game = new Game();
+
+    JLabel playerScore = new JLabel("Player has won: ");
+    JLabel computerScore = new JLabel("Computer has won: ");
     
     
     public void setUpHomeScreen(){
@@ -132,6 +135,9 @@ public class ladybugGUI {
 	// set player needs JLable to correct names
 	pNeed = new JLabel(player.getName() + " still needs");
 	cNeed = new JLabel(computer.getName() + " still needs");
+    playerScore = new JLabel(player.getName() + " has won: " + player.getWins() + " game(s)" );
+    computerScore = new JLabel("    " + computer.getName() + " has won: " + computer.getWins() + " game(s)");
+
 
         text.setEditable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -210,7 +216,12 @@ public class ladybugGUI {
 	pW.setEditable(false);
 	// add wings counter
         frame.add(pW, gc);
-        
+      
+   //player score
+        gc.gridx = 0;
+        gc.gridy = 8;
+        frame.add(playerScore, gc);
+
         //computer score
 	// add computer needs label
 	gc.gridx=4;
@@ -270,7 +281,12 @@ public class ladybugGUI {
 	cW.setEditable(false);
 	// add abdomen counter
         frame.add(cW, gc);
-        
+    
+    //add computer score
+        gc.gridx = 4;
+        gc.gridy = 8;
+        frame.add(computerScore, gc);    
+
 	// add Roll button
         gc.gridx=2;
         gc.gridy=9;
@@ -331,6 +347,9 @@ public class ladybugGUI {
 		// reset APlayer objects
                 player.reset();
                 computer.reset();
+        //update player score
+        player.setWins(player.getWins() + 1);
+        playerScore.setText(player.getName() + " has won: " + player.getWins() + " game(s)" );
 
 		// reset counter text fields
                 pB.setText("1");
@@ -367,7 +386,10 @@ public class ladybugGUI {
 		// reset APlayer objects
                 player.reset();
                 computer.reset();
-		
+		//update computer score
+        computer.setWins(computer.getWins() + 1);
+        computerScore.setText(computer.getName() + " has won: " + computer.getWins() + " game(s)" );
+
 		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");

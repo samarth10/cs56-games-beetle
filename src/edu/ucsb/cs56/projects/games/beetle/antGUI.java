@@ -335,6 +335,11 @@ public class antGUI {
             
 	    // message and reset if Player 1 wins
             if(player.hasWon()){
+                frame.setVisible(false);
+                
+                exitGUI exit = new exitGUI();
+                exit.setVisible(true);
+
                 text.append(player.getName() + " WINS!!\n\n");
 		// reset APlayer objects
                 player.reset();
@@ -372,6 +377,12 @@ public class antGUI {
 	    
 	    // message and reset if Player 2 wins
             if(computer.hasWon()){
+
+                frame.setVisible(false);
+                
+                exitGUI exit = new exitGUI();
+                exit.setVisible(true);
+
                 text.append(computer.getName() + " WINS!!\n\n");
 		// reset APlayer objects
                 player.reset();
