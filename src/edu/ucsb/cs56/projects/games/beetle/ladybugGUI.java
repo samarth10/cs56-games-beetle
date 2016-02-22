@@ -78,6 +78,14 @@ public class ladybugGUI {
 
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
+
+    public ladybugGUI(){
+
+    }
+    public ladybugGUI(int playerScore, int computerScore){
+	game.setScore(0, playerScore);
+	game.setScore(1, computerScore);
+    }
     
     
     public void setUpHomeScreen(){

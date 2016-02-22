@@ -80,6 +80,15 @@ public class beetleGUI {
     
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
+
+    public beetleGUI(){
+
+    }
+    public beetleGUI(int playerScore, int computerScore){
+	game.setScore(0, playerScore);
+	game.setScore(1, computerScore);
+    }
+    
     
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players

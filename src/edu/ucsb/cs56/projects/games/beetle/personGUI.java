@@ -84,6 +84,14 @@ public class personGUI {
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
     
+    public personGUI(){
+
+    }
+    public personGUI(int playerScore, int computerScore){
+	game.setScore(0, playerScore);
+	game.setScore(1, computerScore);
+    }
+    
     
     public void setUpHomeScreen(){
 

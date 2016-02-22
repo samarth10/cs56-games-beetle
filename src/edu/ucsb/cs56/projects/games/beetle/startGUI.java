@@ -95,60 +95,60 @@ public class startGUI {
 	public void actionPerformed(ActionEvent event) {
 	   if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
 	   	antGUI agui = new antGUI(startGUI.this.playerScore, startGUI.this.computerScore);
-	    agui.setUpHomeScreen();
-	    frame.setVisible(false);
-	    }
-	    else{
-	    antGUI agui = new antGUI();
-	    agui.setUpHomeScreen();
-	    frame.setVisible(false);
-	}
-
+		agui.setUpHomeScreen();
+		frame.setVisible(false);
+	   }
+	   else{
+	       antGUI agui = new antGUI();
+	       agui.setUpHomeScreen();
+	       frame.setVisible(false);
+	   }
+	   
 	}
     }//end AntListener
     
     class BeetleListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
-		if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	    if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
 	   	beetleGUI bgui = new beetleGUI(startGUI.this.playerScore, startGUI.this.computerScore);
-	    agui.setUpHomeScreen();
-	    frame.setVisible(false);
+		bgui.setUpHomeScreen();
+		frame.setVisible(false);
 	    }
 	    else{
-	    beetleGUI bgui = new beetleGUI();
-	    bgui.setUpHomeScreen();
-	    frame.setVisible(false);
-	}
+		beetleGUI bgui = new beetleGUI();
+		bgui.setUpHomeScreen();
+		frame.setVisible(false);
+	    }
 	}
     }//end BeetleListener
 
     class PersonListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
-		if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	    if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
 	   	personGUI pgui = new personGUI(startGUI.this.playerScore, startGUI.this.computerScore);
-	    pgui.setUpHomeScreen();
-	    frame.setVisible(false);
+		pgui.setUpHomeScreen();
+		frame.setVisible(false);
 	    }
 	    else{
-	    personGUI pgui = new personGUI();
-	    pgui.setUpHomeScreen();
-	    frame.setVisible(false);
-	}
+		personGUI pgui = new personGUI();
+		pgui.setUpHomeScreen();
+		frame.setVisible(false);
+	    }
 	}
     }//end PersonListener
 
     class LadybugListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
-		if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	    if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
 	   	ladybugGUI lbgui = new ladybugGUI(startGUI.this.playerScore, startGUI.this.computerScore);
-	    lbgui.setUpHomeScreen();
-	    frame.setVisible(false);
+		lbgui.setUpHomeScreen();
+		frame.setVisible(false);
 	    }
 	    else{
-	    ladybugGUI lbgui = new ladybugGUI();
-	    lbgui.setUpHomeScreen();
-	    frame.setVisible(false);
-	}
+		ladybugGUI lbgui = new ladybugGUI();
+		lbgui.setUpHomeScreen();
+		frame.setVisible(false);
+	    }
 	}
     }//end LadybugListener
     
