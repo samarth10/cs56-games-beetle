@@ -137,8 +137,8 @@ public class antGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
-    playerScore = new JLabel(player.getName() + " has won: " + player.getWins() + " game(s)" );
-	computerScore = new JLabel("    " + computer.getName() + " has won: " + computer.getWins() + " game(s)");
+    playerScore = new JLabel(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
+	computerScore = new JLabel("    " + computer.getName() + " has won: " + game.getScore(1) + " game(s)");
     // add title to frame
         gc.gridwidth=2;
         gc.gridx=2;
@@ -335,17 +335,16 @@ public class antGUI {
             
 	    // message and reset if Player 1 wins
             if(player.hasWon()){
-                frame.setVisible(false);
-                
-                exitGUI exit = new exitGUI();
+               frame.setVisible(false);
+               exitGUI exit = new exitGUI();
                 exit.setVisible(true);
-
+        
                 text.append(player.getName() + " WINS!!\n\n");
 		// reset APlayer objects
                 player.reset();
                 computer.reset();
-                player.setWins(player.getWins() + 1);
-                playerScore.setText(player.getName() + " has won: " + player.getWins() + " game(s)" );
+                game.increaseScore(0);
+                playerScore.setText(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
 		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");
@@ -387,8 +386,8 @@ public class antGUI {
 		// reset APlayer objects
                 player.reset();
                 computer.reset();
-		        computer.setWins(computer.getWins() + 1);
-                computerScore.setText("    " + computer.getName() + " has won: " + computer.getWins() + " game(s)");
+		        game.increaseScore(1);
+                computerScore.setText("    " + computer.getName() + " has won: " + game.getScore(1) + " game(s)");
 		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");

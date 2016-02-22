@@ -18,11 +18,7 @@ public class BPlayer{
 	private int antenna=0;
 	private int tail=0;
 	
-    /**
-        Keeps track of the # of wins
-    */
-
-    private int wins=0;
+ 
 
     /**
         The BPlayer constructor takes no arguments 
@@ -181,12 +177,6 @@ public class BPlayer{
 	public void draw(){
 	
 	}
-	public void setWins(int wins){
-        this.wins = wins;
-    }
-    public int getWins(){
-        return this.wins;
-    }
-
+	
 
 }//end BPlayer	

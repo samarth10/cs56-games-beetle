@@ -133,8 +133,8 @@ public class beetleGUI {
 	// set player needs JLable to correct names
 	pNeed = new JLabel(player.getName() + " still needs");
 	cNeed = new JLabel(computer.getName() + " still needs");
-    playerScore = new JLabel(player.getName() + " has won: " + player.getWins() + " game(s)" );
-    computerScore = new JLabel("    " + computer.getName() + " has won: " + computer.getWins() + " game(s)");
+    playerScore = new JLabel(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
+    computerScore = new JLabel("    " + computer.getName() + " has won: " + game.getScore(1) + " game(s)");
 
 
         text.setEditable(false);
@@ -343,8 +343,8 @@ public class beetleGUI {
                 player.reset();
                 computer.reset();
                 //update player score
-                player.setWins(player.getWins() + 1);
-                 playerScore.setText(player.getName() + " has won: " + player.getWins() + " game(s)" );
+                game.increaseScore(0);
+                 playerScore.setText(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
 
 		// reset counter text fields
                 pB.setText("1");
@@ -382,8 +382,8 @@ public class beetleGUI {
                 computer.reset();
 
                 //update computer score
-                 computer.setWins(computer.getWins() + 1);
-                 computerScore.setText(computer.getName() + " has won: " + computer.getWins() + " game(s)" );
+                game.increaseScore(1);
+                 computerScore.setText(computer.getName() + " has won: " + game.getScore(1) + " game(s)" );
 
 
 		// reset counter text fields

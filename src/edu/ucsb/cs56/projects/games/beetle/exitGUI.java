@@ -19,7 +19,6 @@ public class exitGUI extends JFrame{
 
 	private JButton playAgain;
 	private JButton exit;
-	private JButton newLevel;
 	private JPanel panel = new JPanel();
 
 	public exitGUI(){
@@ -27,13 +26,27 @@ public class exitGUI extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		playAgain = new JButton("Play Again");
 		exit = new JButton("Close Game");
-		newLevel = new JButton("Choose new level");
+		exit.addActionListener(new ExitListener());
+		playAgain.addActionListener(new playAgainListener());
 		panel.add(playAgain);
 		panel.add(exit);
-		panel.add(newLevel);
 		add(panel);
 		setSize(150,150);
+		setResizable(false);
 	} 
+
+	class playAgainListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			startGUI gui = new startGUI();
+        	gui.setUpHomeScreen();
+		}
+	}
+	
+	class ExitListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			System.exit(0);
+		}
+	}
 
 
 }

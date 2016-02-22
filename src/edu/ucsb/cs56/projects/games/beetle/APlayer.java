@@ -17,7 +17,6 @@ public class APlayer{
     private int eyes=0;
     private int antenna=0;
     private int thorax=0;
-    private int wins=0;
     
     /**
         The APlayer constructor takes no arguments 
@@ -176,11 +175,6 @@ public class APlayer{
 	public void draw(){
 	
 	}
-    public void setWins(int wins){
-        this.wins = wins;
-    }
-    public int getWins(){
-        return this.wins;
-    }
+    
 
 }//end APlayer	
