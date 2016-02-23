@@ -50,4 +50,5 @@ public class gameTest {
 	exitGUI egui = new exitGUI();
 	egui.setVisible(true);
     }
+    
 }
