@@ -11,12 +11,12 @@ public class LPlayer{
         They start off at 0 and should end up at
         1,1,1,6,2,2,1 respectively in order to win.
     */
-    private int wings=0;
+    private int body=0;
     private int head=0;
     private int legs=0;
     private int eyes=0;
     private int antenna=0;
-    private int body=0;
+    private int wings=0;
 
   
     
