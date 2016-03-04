@@ -12,3 +12,5 @@ There is a Run.java file which initially starts the game by opening up the start
 
 Pictures of the game can be found here:
 https://github.com/UCSB-CS56-Projects/cs56-games-beetle/issues/14
+
+![alt tag](https://github.com/JNguyen96/cs56-games-beetle/blob/master/gamePictures/GameScreen.png)
