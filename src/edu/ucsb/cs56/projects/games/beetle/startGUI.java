@@ -23,6 +23,8 @@ import javax.swing.*;
  *
  * @author Dennis
  * @author Kevin Jih
+ * @author Justin Nguyen
+ * @author Alex Kang
  */
 public class startGUI {
     JFrame frame = new JFrame("Dice Rolling Game");
@@ -40,10 +42,15 @@ public class startGUI {
     public startGUI(){
 
     }
+    /**
+     *@param playerscore      the score of the player(player 1)
+     *@param computerscore    the score of the computer(player 2)
+     */
     public startGUI(int playerScore, int computerScore){
     	this.playerScore = playerScore;
     	this.computerScore = computerScore;
     }
+    
     public void setUpHomeScreen(){
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());

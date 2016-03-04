@@ -87,6 +87,11 @@ public class personGUI {
     public personGUI(){
 
     }
+     /**
+      * Overloaded constructor so g
+      * @param playerscore      the score of the player(player 1)
+      * @param computerscore    the score of the computer(player 2)
+     */
     public personGUI(int playerScore, int computerScore){
 	game.setScore(0, playerScore);
 	game.setScore(1, computerScore);

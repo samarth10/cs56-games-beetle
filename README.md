@@ -10,5 +10,9 @@ The game is won by being the first player to roll all parts of the insect/person
 Description of File Structure:
 There is a Run.java file which initially starts the game by opening up the start GUI. Each level has its own GUI class along with a class that tracks each player for that level. There is also DrawComponent and DrawPanel files in order to draw graphics for the game.
 
-Pictures of the game can be found here:
-https://github.com/UCSB-CS56-Projects/cs56-games-beetle/issues/14
+Pictures of the game can:
+
+![alt tag](https://github.com/JNguyen96/cs56-games-beetle/blob/master/gamePictures/StartScreen.png)
+![alt tag](https://github.com/JNguyen96/cs56-games-beetle/blob/master/gamePictures/PlayerSelectScreen.png)
+![alt tag](https://github.com/JNguyen96/cs56-games-beetle/blob/master/gamePictures/PlayerNameScreen.png)
+![alt tag](https://github.com/JNguyen96/cs56-games-beetle/blob/master/gamePictures/GameScreen.png)
