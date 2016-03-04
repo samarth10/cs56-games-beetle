@@ -23,7 +23,11 @@ import javax.swing.*;
  *
  * @author Dennis
  * @author Kevin Jih
+ * @author Justin Nguyen
+ * @author Alexander Kang
  */
+
+
 public class antGUI {
     JFrame frame = new JFrame("Ant Dice Rolling Game");
     JPanel thePanel = new JPanel(new GridBagLayout());
@@ -79,13 +83,25 @@ public class antGUI {
     //labels to track score
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
+    /** no-arg constructor for antGUI
+     
+     */
     public antGUI(){
 
     }
+
+    /**
+     * Overloaded constructor with score parameters
+     * @param playerscore the score of the player(player 1)
+     * @param computerscore the score of the computer(player 2)
+     */
     public antGUI(int playerScore, int computerScore){
         game.setScore(0, playerScore);
         game.setScore(1, computerScore);
     }
+    /**
+     * Sets up the ant GUI window and launches the Single/MultiPlayer window
+     */
     
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players
@@ -313,7 +329,9 @@ public class antGUI {
         
         
     }
-    
+    /**
+     * Action Listener for rolling on the ant GUI window
+     */
     class RollListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
 	    // Roll for both players and append the propper text to the text scroll panel
@@ -426,6 +444,10 @@ public class antGUI {
             
         }
     }//end RollListener
+
+    /**
+     * Action Listener for exiting the ant GUi window
+     */
     class ExitListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		System.exit(0);

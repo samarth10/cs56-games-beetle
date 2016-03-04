@@ -23,6 +23,8 @@ import javax.swing.*;
  *
  * @author Dennis
  * @author Kevin Jih
+ * @author Justin Nguyen
+ * @author Alexander Kang
  */
 public class beetleGUI {
     JFrame frame = new JFrame("Beetle Dice Rolling Game");
@@ -81,15 +83,24 @@ public class beetleGUI {
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
 
+    /**
+       no-arg constructor for the beetle GUI
+     */
     public beetleGUI(){
 
     }
+    
+    /**
+     * Overloaded constructor with score paremeters
+     */
     public beetleGUI(int playerScore, int computerScore){
 	game.setScore(0, playerScore);
 	game.setScore(1, computerScore);
     }
     
-    
+    /**
+     * Sets up beetle GUI and launches Single/Multi Player window
+     */
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players
 	frame.getContentPane().setBackground(new Color(204, 153, 255));
@@ -319,7 +330,9 @@ public class beetleGUI {
         
         
     }
-    
+    /**
+     * Action Listener for rolling in beetle GUI window
+     */
     class RollListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
 	    // Roll for both players and append the propper text to the text scroll panel
@@ -432,6 +445,10 @@ public class beetleGUI {
             
         }
     }//end RollListener
+
+    /**
+     * Action Listener to exit beetle GUI window
+     */
     class ExitListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		System.exit(0);

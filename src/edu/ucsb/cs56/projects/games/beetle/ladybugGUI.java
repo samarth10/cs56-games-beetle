@@ -23,6 +23,8 @@ import javax.swing.*;
  *
  * @author Dennis
  * @author Kevin Jih
+ * @author Justin Nguyen
+ * @author Alexander Kang
  */
 public class ladybugGUI {
     JFrame frame = new JFrame("Ladybug Dice Rolling Game");
@@ -79,6 +81,8 @@ public class ladybugGUI {
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
 
+    /**
+     */
     public ladybugGUI(){
 
     }
