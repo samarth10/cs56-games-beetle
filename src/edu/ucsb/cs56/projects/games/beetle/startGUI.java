@@ -23,6 +23,8 @@ import javax.swing.*;
  *
  * @author Dennis
  * @author Kevin Jih
+ * @author Justin Nguyen
+ * @author Alex Kang
  */
 public class startGUI {
     JFrame frame = new JFrame("Dice Rolling Game");
@@ -32,11 +34,27 @@ public class startGUI {
     JButton person = new JButton("Person");
     JButton ant = new JButton("Ant");
     JButton beetle = new JButton("Beetle");
+    JButton ladybug = new JButton("Ladybug");
     JButton exit = new JButton("Exit");
-       
+    private int playerScore=0;
+    private int computerScore=0;
+
+    public startGUI(){
+
+    }
+    /**
+     *@param playerscore      the score of the player(player 1)
+     *@param computerscore    the score of the computer(player 2)
+     */
+    public startGUI(int playerScore, int computerScore){
+    	this.playerScore = playerScore;
+    	this.computerScore = computerScore;
+    }
+    
     public void setUpHomeScreen(){
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
+	frame.getContentPane().setBackground(new Color(135, 206, 235));
         GridBagConstraints gc = new GridBagConstraints();
         
 	// add title to frame
@@ -60,8 +78,13 @@ public class startGUI {
 	person.addActionListener(new PersonListener());
 	frame.add(person, gc);
 
-	// add exit button
+	//add "LadyBug" button to launch ladybugGUI
 	gc.gridy=4;
+	ladybug.addActionListener(new LadybugListener());
+	frame.add(ladybug, gc);
+	
+	// add exit button
+	gc.gridy=5;
         exit.addActionListener(new ExitListener());
         frame.add(exit, gc);
 
@@ -77,28 +100,65 @@ public class startGUI {
 
     class AntListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
-	    antGUI agui = new antGUI();
-	    agui.setUpHomeScreen();
-	    frame.setVisible(false);
+	   if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	   	antGUI agui = new antGUI(startGUI.this.playerScore, startGUI.this.computerScore);
+		agui.setUpHomeScreen();
+		frame.setVisible(false);
+	   }
+	   else{
+	       antGUI agui = new antGUI();
+	       agui.setUpHomeScreen();
+	       frame.setVisible(false);
+	   }
+	   
 	}
     }//end AntListener
     
     class BeetleListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
-	    beetleGUI bgui = new beetleGUI();
-	    bgui.setUpHomeScreen();
-	    frame.setVisible(false);
+	    if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	   	beetleGUI bgui = new beetleGUI(startGUI.this.playerScore, startGUI.this.computerScore);
+		bgui.setUpHomeScreen();
+		frame.setVisible(false);
+	    }
+	    else{
+		beetleGUI bgui = new beetleGUI();
+		bgui.setUpHomeScreen();
+		frame.setVisible(false);
+	    }
 	}
     }//end BeetleListener
 
     class PersonListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
-	    personGUI pgui = new personGUI();
-	    pgui.setUpHomeScreen();
-	    frame.setVisible(false);
+	    if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	   	personGUI pgui = new personGUI(startGUI.this.playerScore, startGUI.this.computerScore);
+		pgui.setUpHomeScreen();
+		frame.setVisible(false);
+	    }
+	    else{
+		personGUI pgui = new personGUI();
+		pgui.setUpHomeScreen();
+		frame.setVisible(false);
+	    }
 	}
     }//end PersonListener
 
+    class LadybugListener implements ActionListener {
+	public void actionPerformed(ActionEvent event) {
+	    if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
+	   	ladybugGUI lbgui = new ladybugGUI(startGUI.this.playerScore, startGUI.this.computerScore);
+		lbgui.setUpHomeScreen();
+		frame.setVisible(false);
+	    }
+	    else{
+		ladybugGUI lbgui = new ladybugGUI();
+		lbgui.setUpHomeScreen();
+		frame.setVisible(false);
+	    }
+	}
+    }//end LadybugListener
+    
     class ExitListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		System.exit(0);

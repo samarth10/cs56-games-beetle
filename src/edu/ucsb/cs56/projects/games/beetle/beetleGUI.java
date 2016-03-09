@@ -23,6 +23,8 @@ import javax.swing.*;
  *
  * @author Dennis
  * @author Kevin Jih
+ * @author Justin Nguyen
+ * @author Alexander Kang
  */
 public class beetleGUI {
     JFrame frame = new JFrame("Beetle Dice Rolling Game");
@@ -78,9 +80,31 @@ public class beetleGUI {
     BPlayer computer = new BPlayer();
     Game game = new Game();
     
+    JLabel playerScore = new JLabel("Player has won: ");
+    JLabel computerScore = new JLabel("Computer has won: ");
+
+    /**
+       no-arg constructor for the beetle GUI
+     */
+    public beetleGUI(){
+
+    }
     
+    /**
+     * Overloaded constructor with score paremeters
+     */
+    public beetleGUI(int playerScore, int computerScore){
+	game.setScore(0, playerScore);
+	game.setScore(1, computerScore);
+    }
+    
+    /**
+     * Sets up beetle GUI and launches Single/Multi Player window
+     */
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players
+	frame.getContentPane().setBackground(new Color(204, 153, 255));
+	
 	Object[] options = {"Single Player",
 			    "Two Players"};
 	int n = JOptionPane.showOptionDialog(frame,
@@ -129,6 +153,8 @@ public class beetleGUI {
 	// set player needs JLable to correct names
 	pNeed = new JLabel(player.getName() + " still needs");
 	cNeed = new JLabel(computer.getName() + " still needs");
+    playerScore = new JLabel(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
+    computerScore = new JLabel("    " + computer.getName() + " has won: " + game.getScore(1) + " game(s)");
 
 
         text.setEditable(false);
@@ -209,6 +235,10 @@ public class beetleGUI {
 	// add tail counter
         frame.add(pT, gc);
         
+        gc.gridx = 0;
+        gc.gridy = 8;
+        frame.add(playerScore, gc);
+
         //computer score
 	// add computer needs label
 	gc.gridx=4;
@@ -268,8 +298,13 @@ public class beetleGUI {
 	cT.setEditable(false);
 	// add tail counter
         frame.add(cT, gc);
-        
-	// add Roll button
+   
+    //add computer score
+        gc.gridx = 4;
+        gc.gridy = 8;
+        frame.add(computerScore, gc);
+	
+    // add Roll button
         gc.gridx=2;
         gc.gridy=9;
         roll.addActionListener(new RollListener());
@@ -290,12 +325,14 @@ public class beetleGUI {
 
         //frame.getContentPane().add(thePanel);
         frame.pack();
-        frame.setSize(800,800);
+        frame.setSize(900,600);
         frame.setVisible(true);
         
         
     }
-    
+    /**
+     * Action Listener for rolling in beetle GUI window
+     */
     class RollListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
 	    // Roll for both players and append the propper text to the text scroll panel
@@ -320,13 +357,19 @@ public class beetleGUI {
             cE.setText("" +(cEN - computer.getEyes()));
             cA.setText("" +(cAN - computer.getAntenna()));
             cT.setText("" +(cTN - computer.getTail()));
-            
+          
 	    // message and reset if Player 1 wins
             if(player.hasWon()){
                 text.append(player.getName() + " WINS!!\n\n");
 		// reset BPlayer objects
+                game.increaseScore(0);
+                exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
+                exit.setVisible(true);
+		frame.setVisible(false);
                 player.reset();
                 computer.reset();
+                //update player score
+                 playerScore.setText(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
 
 		// reset counter text fields
                 pB.setText("1");
@@ -339,7 +382,7 @@ public class beetleGUI {
                 cH.setText("1");
                 cL.setText("6");
                 cE.setText("2");
-                cA.setText("1");
+                cA.setText("2");
 		cT.setText("1");
 
 		// reset counters
@@ -360,8 +403,16 @@ public class beetleGUI {
             if(computer.hasWon()){
                 text.append(computer.getName() + " WINS!!\n\n");
 		// reset BPlayer objects
+                game.increaseScore(1);
+                exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
+                exit.setVisible(true);
+		frame.setVisible(false);
                 player.reset();
                 computer.reset();
+
+                //update computer score
+                 computerScore.setText(computer.getName() + " has won: " + game.getScore(1) + " game(s)" );
+
 
 		// reset counter text fields
                 pB.setText("1");
@@ -394,6 +445,10 @@ public class beetleGUI {
             
         }
     }//end RollListener
+
+    /**
+     * Action Listener to exit beetle GUI window
+     */
     class ExitListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		System.exit(0);

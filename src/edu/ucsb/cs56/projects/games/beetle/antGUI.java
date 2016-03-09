@@ -23,7 +23,11 @@ import javax.swing.*;
  *
  * @author Dennis
  * @author Kevin Jih
+ * @author Justin Nguyen
+ * @author Alexander Kang
  */
+
+
 public class antGUI {
     JFrame frame = new JFrame("Ant Dice Rolling Game");
     JPanel thePanel = new JPanel(new GridBagLayout());
@@ -76,9 +80,32 @@ public class antGUI {
     APlayer computer = new APlayer();
     Game game = new Game();
     
+    //labels to track score
+    JLabel playerScore = new JLabel("Player has won: ");
+    JLabel computerScore = new JLabel("Computer has won: ");
+    /** no-arg constructor for antGUI
+     
+     */
+    public antGUI(){
+
+    }
+
+    /**
+     * Overloaded constructor with score parameters
+     * @param playerscore the score of the player(player 1)
+     * @param computerscore the score of the computer(player 2)
+     */
+    public antGUI(int playerScore, int computerScore){
+        game.setScore(0, playerScore);
+        game.setScore(1, computerScore);
+    }
+    /**
+     * Sets up the ant GUI window and launches the Single/MultiPlayer window
+     */
     
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players
+	frame.getContentPane().setBackground(new Color(0, 153, 0));
 	Object[] options = {"Single Player",
 			    "Two Players"};
 	int n = JOptionPane.showOptionDialog(frame,
@@ -132,8 +159,9 @@ public class antGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
-
-	// add title to frame
+    playerScore = new JLabel(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
+	computerScore = new JLabel("    " + computer.getName() + " has won: " + game.getScore(1) + " game(s)");
+    // add title to frame
         gc.gridwidth=2;
         gc.gridx=2;
         gc.gridy=0;
@@ -205,6 +233,11 @@ public class antGUI {
 	pT.setEditable(false);
 	// add abdomen counter
         frame.add(pT, gc);
+
+    //format and add player 1 score
+        gc.gridx = 0;
+        gc.gridy = 8;
+        frame.add(playerScore, gc);
         
         //computer score
 	// add computer needs label
@@ -265,6 +298,10 @@ public class antGUI {
 	cT.setEditable(false);
 	// add abdomen counter
         frame.add(cT, gc);
+    //add computer score
+        gc.gridx = 4;
+        gc.gridy = 8;
+        frame.add(computerScore, gc);
         
 	// add Roll button
         gc.gridx=2;
@@ -287,12 +324,14 @@ public class antGUI {
 
         //frame.getContentPane().add(thePanel);
         frame.pack();
-        frame.setSize(800,800);
+        frame.setSize(900,600);
         frame.setVisible(true);
         
         
     }
-    
+    /**
+     * Action Listener for rolling on the ant GUI window
+     */
     class RollListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
 	    // Roll for both players and append the propper text to the text scroll panel
@@ -320,11 +359,17 @@ public class antGUI {
             
 	    // message and reset if Player 1 wins
             if(player.hasWon()){
-                text.append(player.getName() + " WINS!!\n\n");
-		// reset APlayer objects
-                player.reset();
-                computer.reset();
-
+		//frame.setVisible(false);
+	       game.increaseScore(0);
+	       exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
+	       exit.setVisible(true);
+	       frame.setVisible(false);
+	       
+	       text.append(player.getName() + " WINS!!\n\n");
+	       // reset APlayer objects
+	       player.reset();
+	       computer.reset();
+	       playerScore.setText(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
 		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");
@@ -336,7 +381,7 @@ public class antGUI {
                 cH.setText("1");
                 cL.setText("6");
                 cE.setText("2");
-                cA.setText("1");
+                cA.setText("2");
 		cT.setText("1");
 
 		// reset counters
@@ -356,11 +401,18 @@ public class antGUI {
 	    
 	    // message and reset if Player 2 wins
             if(computer.hasWon()){
+
+                //frame.setVisible(false); 
+                game.increaseScore(1);
+                exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
+                exit.setVisible(true);
+		frame.setVisible(false);
+		
                 text.append(computer.getName() + " WINS!!\n\n");
 		// reset APlayer objects
                 player.reset();
                 computer.reset();
-		
+		        computerScore.setText("    " + computer.getName() + " has won: " + game.getScore(1) + " game(s)");
 		// reset counter text fields
                 pB.setText("1");
                 pH.setText("1");
@@ -392,6 +444,10 @@ public class antGUI {
             
         }
     }//end RollListener
+
+    /**
+     * Action Listener for exiting the ant GUi window
+     */
     class ExitListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		System.exit(0);

@@ -2,7 +2,7 @@ package edu.ucsb.cs56.projects.games.beetle;
 import java.awt.*;
 import java.util.*;
 
-public class APlayer{
+public class LPlayer{
     private String name;
     private int roll=0;
     /**
@@ -11,18 +11,20 @@ public class APlayer{
         They start off at 0 and should end up at
         1,1,1,6,2,2,1 respectively in order to win.
     */
-    private int abdomen=0;
+    private int body=0;
     private int head=0;
     private int legs=0;
     private int eyes=0;
     private int antenna=0;
-    private int thorax=0;
+    private int wings=0;
+
+  
     
     /**
         The APlayer constructor takes no arguments 
         and creates a APlayer object
     */
-    public APlayer(){}//end constructor
+    public LPlayer(){}//end constructor
 
     //here are the getters and setters for name and roll
     public String getName(){
@@ -45,13 +47,14 @@ public class APlayer{
         The following 6 methods return the number of
         body parts each part has
     */
-    public int getThorax(){return this.thorax;}
-    public int getAbdomen(){return this.abdomen;}
+    public int getBody(){return this.body;}
+    public int getWings(){return this.wings;}
     public int getHead(){return this.head;}
     public int getLegs(){return this.legs;}
     public int getEyes(){return this.eyes;}
     public int getAntenna(){return this.antenna;}
-    public int getTail(){return this.thorax;}
+    
+
     /**
         manualRoll is used for testing. The parameter
         i should be the thorax part that you want to add 
@@ -63,12 +66,12 @@ public class APlayer{
     /** 
         roll takes no arguments and randomly generates a value between
         1 and 6.
-            1 = thorax
+            1 = body
             2 = head
             3 = legs
             4 = eyes
             5 = antenna
-            6 = abdomen
+            6 = wings
     */
     public void roll(){
 	Random rnd = new Random();
@@ -87,29 +90,29 @@ public class APlayer{
     */
 	public String addPart(){
 		
-		if(roll==1 && thorax==0){
-			thorax++;
-			return "added a thorax\n";
+		if(roll==1 && body==0){
+			body++;
+			return "added a body\n";
 		}
-		if(roll==1 && thorax==1){
-			return "already has a thorax\n";
+		if(roll==1 && body==1){
+			return "already has a body\n";
 		}
-		if(roll==2 && head==0 && thorax==1){
+		if(roll==2 && head==0 && body==1){
 			head++;
 			return "added a head\n";
 		}
-		if(roll==2 && head==0 && thorax==0){
-			return "needs a thorax first\n";
+		if(roll==2 && head==0 && body==0){
+			return "needs a body first\n";
 		}
 		if(roll==2 && head==1){
 			return "already has a head\n";
 		}
-		if(roll==3 && thorax==1 && legs<6){
+		if(roll==3 && body==1 && legs<6){
 			legs++;
 			return "added a leg\n";
 		}
-		if(roll==3 && thorax==0){
-			return "needs a thorax first\n";
+		if(roll==3 && body==0){
+			return "needs a body first\n";
 		}
 		if(roll==3 && legs==6){
 			return "already has enough legs\n";
@@ -134,15 +137,15 @@ public class APlayer{
 		if(roll==5 && antenna==2){
 			return "already has enough antenna\n";
 		}
-		if(roll==6 && thorax==1 && abdomen<1){
-			abdomen++;
-			return "added a abdomen\n";
+		if(roll==6 && body==1 && wings<2){
+			wings++;
+			return "added a wing\n";
 		}
-		if(roll==6 && thorax==0){
-			return "needs a thorax first\n";
+		if(roll==6 && body==0){
+			return "needs a body first\n";
 		}
-		if(roll==6 && thorax==1){
-			return "already has an abdomen\n";
+		if(roll==6 && wings == 2){
+			return "already has wnough wings\n";
 		}
 		return "Something went wrong\n";		
 	}//end addPart	
@@ -152,9 +155,9 @@ public class APlayer{
         should be called after every turn.
     */
     public boolean hasWon(){
-		if(head==1 && thorax==1 && 
+		if(head==1 && body==1 && 
 		   eyes==2 && antenna==2 && 
-		   legs==6 && abdomen==1){
+		   legs==6 && wings==2){
 			return true;
 		}
 		else
@@ -165,16 +168,16 @@ public class APlayer{
         This is used if the user wants to play again
     */
     public void reset(){
-        thorax=0;
+        body=0;
         head=0;
         legs=0;
         eyes=0;
         antenna=0;
-        abdomen=0;
+        wings=0;
     }
 	public void draw(){
 	
 	}
-    
+  
 
-}//end APlayer	
+}//end LPlayer	

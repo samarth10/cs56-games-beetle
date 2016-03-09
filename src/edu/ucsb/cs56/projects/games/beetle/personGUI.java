@@ -80,9 +80,28 @@ public class personGUI {
     PPlayer player = new PPlayer();
     PPlayer computer = new PPlayer();
     Game game = new Game();
+
+    JLabel playerScore = new JLabel("Player has won: ");
+    JLabel computerScore = new JLabel("Computer has won: ");
+    
+    public personGUI(){
+
+    }
+     /**
+      * Overloaded constructor so g
+      * @param playerscore      the score of the player(player 1)
+      * @param computerscore    the score of the computer(player 2)
+     */
+    public personGUI(int playerScore, int computerScore){
+	game.setScore(0, playerScore);
+	game.setScore(1, computerScore);
+    }
     
     
     public void setUpHomeScreen(){
+
+	frame.getContentPane().setBackground(new Color(255, 222, 173));
+	
 	// Option for Single Player or Two Players
 	Object[] options = {"Single Player",
 			    "Two Players"};
@@ -132,7 +151,9 @@ public class personGUI {
 	// set player needs JLable to correct names
 	pNeed = new JLabel(player.getName() + " still needs");
 	cNeed = new JLabel(computer.getName() + " still needs");
-	
+	playerScore = new JLabel(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
+    computerScore = new JLabel("    " + computer.getName() + " has won: " + game.getScore(1) + " game(s)");
+
         text.setEditable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
@@ -209,12 +230,12 @@ public class personGUI {
         gc.gridx=1;
 	pT.setEditable(false);
 	// add arms counter
-        frame.add(pT, gc);
+    frame.add(pT, gc);
 
 	//player drawing panel
-	gc.gridx=0;
-	gc.gridy=8;
-	frame.add(pComponent, gc);
+	gc.gridx = 0;
+    gc.gridy = 8;
+    frame.add(playerScore, gc);
 	//frame.add(testButton, gc);
 
         //computer score
@@ -276,6 +297,11 @@ public class personGUI {
 	cT.setEditable(false);
 	// add arms counter
         frame.add(cT, gc);
+
+    //add computer score
+        gc.gridx = 4;
+        gc.gridy = 8;
+        frame.add(computerScore, gc);
         
 	// add Roll button
         gc.gridx=2;
@@ -298,7 +324,7 @@ public class personGUI {
 
         //frame.getContentPane().add(thePanel);
         frame.pack();
-        frame.setSize(800,800);
+        frame.setSize(900,600);
         frame.setVisible(true);
         
         
@@ -346,8 +372,14 @@ public class personGUI {
             if(player.hasWon()){
                 text.append(player.getName() + " WINS!!\n\n");
 		// reset PPlayer objects
+                game.increaseScore(0);
+                exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
+                exit.setVisible(true);
+		frame.setVisible(false);
                 player.reset();
                 computer.reset();
+        //update player score
+        playerScore.setText(player.getName() + " has won: " + game.getScore(0) + " game(s)" );
 
 		// reset counter text fields
                 pB.setText("1");
@@ -382,8 +414,15 @@ public class personGUI {
             if(computer.hasWon()){
                 text.append(computer.getName() + " WINS!!\n\n");
                 // reset PPlayer objects
+                game.increaseScore(1);
+                exitGUI exit = new exitGUI(game.getScore(0), game.getScore(1));
+                exit.setVisible(true);
+		frame.setVisible(false);
 		player.reset();
                 computer.reset();
+
+                //update computer score
+                computerScore.setText(computer.getName() + " has won: " + game.getScore(1) + " game(s)" );
 
 		// reset counter text fields
                 pB.setText("1");

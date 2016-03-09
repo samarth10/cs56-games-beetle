@@ -14,8 +14,8 @@
   	<property name="javadocURL" 	value="${webBaseURL}/${projectPath}/javadoc"/> 
 
 <target name="compile" description="compile my code">
-  	<mkdir dir="build/edu/ucsb/cs56/projects/games" />
-    	<javac srcdir="src/edu/ucsb/cs56/projects/games" destdir="build/edu/ucsb/cs56/projects/games" debug="true" debuglevel="lines,source" includeantruntime="false">
+  	<mkdir dir="build" /> <!--/edu/ucsb/cs56/projects/games" /> -->
+    	<javac srcdir="src/edu/ucsb/cs56/projects/games" destdir="build" debug="true" debuglevel="lines,source" includeantruntime="false">
      	<classpath>                                                                                                                              
         	<pathelement location="build"/>                                                                                                          
         	<pathelement location="lib/junit-4.8.2.jar"/>                                                   
@@ -24,7 +24,7 @@
 </target>
 
 <target name="run" depends="compile" description="run program">
-  	<java classname="${mainClass}" classpath="build/edu/ucsb/cs56/projects/games" fork="true" />
+  	<java classname="${mainClass}" classpath="build" fork="true" />
 </target>
 
 <target name="clean" description="delete unnecessary files and directories">
@@ -62,21 +62,21 @@
                                                                                                   
 </target>        
 
-<target name="test" depends="compile">
-  	<junit haltonerror="no" haltonfailure="no">
-       		<classpath>
-       			<pathelement location="lib/junit-4.8.2.jar"/>
-         		<pathelement location="build"/>
-       		</classpath>
-
-       	<batchtest fork="yes">
-      		<fileset dir="src">
-       			<!-- this will pick up every class with a name ending in Test -->
-        		<include name="**/*Test.java"/>
-       		</fileset>
-	</batchtest>
-	<formatter type="plain" usefile="false" />     
-  	</junit>
+<target name="test" depends="compile" description="Test the program">
+  <junit haltonerror="no" haltonfailure="no">
+    <classpath>
+      <pathelement location="lib/junit-4.8.2.jar"/>
+      <pathelement location="build"/>
+    </classpath>
+    
+    <batchtest fork="yes">
+      <fileset dir="src">
+       	<!-- this will pick up every class with a name ending in Test -->
+        <include name="**/*Test.java"/>
+      </fileset>
+    </batchtest>
+    <formatter type="plain" usefile="false" />     
+  </junit>
 </target>
 
 <target name="jar" depends="compile">                                          

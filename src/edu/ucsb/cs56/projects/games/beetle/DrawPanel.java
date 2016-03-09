@@ -51,7 +51,8 @@ class DrawPanel extends JPanel
     public void paintComponent(Graphics g) 
     {
 	Graphics2D g2 = (Graphics2D) g;
-
+	g2.setColor(Color.red);
+	g2.fillRect(0,0,this.getWidth(),this.getHeight());
 	switch(this.whichOne) {
 
         case 3:

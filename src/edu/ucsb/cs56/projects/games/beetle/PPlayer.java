@@ -17,6 +17,8 @@ public class PPlayer{
     private int eyes=0;
     private int mouth=0;
     private int arms=0;
+
+  
     
     /**
        The PPlayer constructor takes no arguments 
@@ -175,5 +177,7 @@ public class PPlayer{
     public void draw(){
 	
     }
+  
+
     
 }//end PPlayer	

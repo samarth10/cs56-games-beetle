@@ -77,10 +77,12 @@ class DrawComponent extends JComponent
 	    //case 3:
 	    PDraw p = new PDraw(this.one, this.two, this.three, this.four, this.five, this.six);
 	    //p.setVisible(true);
+	    g2.setColor(Color.RED);
+	    g2.fillRect(0,0,this.getWidth(), this.getHeight());
+	    
 	    g2.draw(p);
 	    //break;
-
-
+	    	    
 	    //	} // switch
 	    
 

@@ -18,6 +18,8 @@ public class BPlayer{
 	private int antenna=0;
 	private int tail=0;
 	
+ 
+
     /**
         The BPlayer constructor takes no arguments 
         and creates a BPlayer object
@@ -175,5 +177,6 @@ public class BPlayer{
 	public void draw(){
 	
 	}
+	
 
 }//end BPlayer	
