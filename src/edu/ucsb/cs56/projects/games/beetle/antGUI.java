@@ -92,8 +92,8 @@ public class antGUI {
 
     /**
      * Overloaded constructor with score parameters
-     * @param playerscore the score of the player(player 1)
-     * @param computerscore the score of the computer(player 2)
+     * @param playerScore the score of the player(player 1)
+     * @param computerScore the score of the computer(player 2)
      */
     public antGUI(int playerScore, int computerScore){
         game.setScore(0, playerScore);

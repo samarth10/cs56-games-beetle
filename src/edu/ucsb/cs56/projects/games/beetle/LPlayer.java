@@ -7,9 +7,9 @@ public class LPlayer{
     private int roll=0;
     /**
         The following ints hold the number of body
-        parts that the beetle is supposed to have.
+        parts that the ladybug is supposed to have.
         They start off at 0 and should end up at
-        1,1,1,6,2,2,1 respectively in order to win.
+        1,1,6,2,2,1 respectively in order to win.
     */
     private int body=0;
     private int head=0;
@@ -21,7 +21,7 @@ public class LPlayer{
   
     
     /**
-        The APlayer constructor takes no arguments 
+        The LPlayer constructor takes no arguments 
         and creates a APlayer object
     */
     public LPlayer(){}//end constructor
@@ -57,8 +57,8 @@ public class LPlayer{
 
     /**
         manualRoll is used for testing. The parameter
-        i should be the thorax part that you want to add 
-        to your APlayer object
+        i should be the part that you want to add 
+        to your LPlayer object
     */
     public void manualRoll(int i){
 	this.roll=i;
@@ -83,7 +83,7 @@ public class LPlayer{
     
     /**
         Add part will take the current roll and determine
-        if your APlayer object needs the thorax part or not.
+        if your LPlayer object needs the thorax part or not.
         It returns the string that corresponds with the
         action that was preformed. Note that there is already a \n
         included in the string.
@@ -150,7 +150,7 @@ public class LPlayer{
 		return "Something went wrong\n";		
 	}//end addPart	
 	/**
-        hasWon checks to see if the APlayer obeject
+        hasWon checks to see if the LPlayer obeject
         has all of the necessary thorax parts. This method
         should be called after every turn.
     */

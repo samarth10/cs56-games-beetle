@@ -92,6 +92,8 @@ public class beetleGUI {
     
     /**
      * Overloaded constructor with score paremeters
+     * @param playerScore the score of the player(player 1)
+     * @param computerScore the score of the computer(player 2)
      */
     public beetleGUI(int playerScore, int computerScore){
 	game.setScore(0, playerScore);
