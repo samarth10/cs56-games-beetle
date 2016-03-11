@@ -80,6 +80,10 @@ public class beetleGUI {
     BPlayer computer = new BPlayer();
     Game game = new Game();
     
+    //add images
+    ImageIcon beetlePic;
+    JLabel picLabel = new JLabel();
+
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
 
@@ -104,6 +108,10 @@ public class beetleGUI {
      * Sets up beetle GUI and launches Single/Multi Player window
      */
     public void setUpHomeScreen(){
+
+    beetlePic = new ImageIcon(new ImageIcon("pictures/beetle.jpg").getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
+    picLabel.setIcon(beetlePic);    
+
 	// Option for Single Player or Two Players
 	frame.getContentPane().setBackground(new Color(204, 153, 255));
 	
@@ -326,6 +334,15 @@ public class beetleGUI {
         frame.add(info2, gc);
 
         //frame.getContentPane().add(thePanel);
+
+        //add the picture
+        //Why 4.
+        gc.gridwidth = 4;
+        gc.gridy = 12;
+        gc.gridx = 1;
+        frame.add(picLabel,gc);
+
+        
         frame.pack();
         frame.setSize(900,600);
         frame.setVisible(true);

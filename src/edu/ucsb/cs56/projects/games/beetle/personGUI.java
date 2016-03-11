@@ -83,6 +83,10 @@ public class personGUI {
     PPlayer computer = new PPlayer();
     Game game = new Game();
 
+     //add images
+    ImageIcon humanPic;
+    JLabel picLabel = new JLabel();
+
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
 
@@ -106,6 +110,9 @@ public class personGUI {
      * Sets up person GUi window and launches the Single/Multi Player window
      */
     public void setUpHomeScreen(){
+
+    humanPic = new ImageIcon(new ImageIcon("pictures/human.jpg").getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
+    picLabel.setIcon(humanPic);  
 
 	frame.getContentPane().setBackground(new Color(255, 222, 173));
 	
@@ -329,6 +336,13 @@ public class personGUI {
         gc.gridy=11;
         frame.add(info2, gc);
 
+        //add the picture
+        //Why 4.
+        gc.gridwidth = 4;
+        gc.gridy = 12;
+        gc.gridx = 1;
+        frame.add(picLabel,gc);
+        
         //frame.getContentPane().add(thePanel);
         frame.pack();
         frame.setSize(900,600);

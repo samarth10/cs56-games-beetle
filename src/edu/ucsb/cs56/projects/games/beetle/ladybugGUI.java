@@ -78,6 +78,10 @@ public class ladybugGUI {
     LPlayer computer = new LPlayer();
     Game game = new Game();
 
+    //add images
+    ImageIcon lbPic;
+    JLabel picLabel = new JLabel();
+
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
 
@@ -101,6 +105,10 @@ public class ladybugGUI {
      * Sets up the ladybug GUI window and launches the Single/Multi Player windoe
      */
     public void setUpHomeScreen(){
+
+    lbPic = new ImageIcon(new ImageIcon("pictures/ladybug.jpg").getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
+    picLabel.setIcon(lbPic);       
+
 
 	frame.getContentPane().setBackground(new Color(255, 75, 75));
 
@@ -325,6 +333,13 @@ public class ladybugGUI {
         frame.add(info1, gc);
         gc.gridy=11;
         frame.add(info2, gc);
+
+        //add the picture
+        //Why 4.
+        gc.gridwidth = 4;
+        gc.gridy = 12;
+        gc.gridx = 1;
+        frame.add(picLabel,gc);
 
         //frame.getContentPane().add(thePanel);
         frame.pack();

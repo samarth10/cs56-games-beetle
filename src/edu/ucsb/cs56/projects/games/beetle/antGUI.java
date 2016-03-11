@@ -80,6 +80,9 @@ public class antGUI {
     APlayer computer = new APlayer();
     Game game = new Game();
     
+    //add images
+    ImageIcon antPic;
+    JLabel picLabel = new JLabel();
     //labels to track score
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
@@ -105,6 +108,12 @@ public class antGUI {
     
     public void setUpHomeScreen(){
 	// Option for Single Player or Two Players
+       
+    antPic = new ImageIcon(new ImageIcon("pictures/ant.jpg").getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
+    picLabel.setIcon(antPic);       
+
+
+        
 	frame.getContentPane().setBackground(new Color(0, 153, 0));
 	Object[] options = {"Single Player",
 			    "Two Players"};
@@ -178,7 +187,7 @@ public class antGUI {
         gc.gridheight=1;
 	gc.gridx=0;
 	gc.gridy=1;
-	frame.add(pNeed, gc);
+    frame.add(pNeed, gc);
 
 	// format and add thorax label
         gc.gridx=0;
@@ -188,7 +197,6 @@ public class antGUI {
 	pB.setEditable(false);
 	// add thorax counter
 	frame.add(pB, gc);
-
 	// format and add head label
         gc.gridx=0;
         gc.gridy=3;
@@ -321,6 +329,13 @@ public class antGUI {
         frame.add(info1, gc);
         gc.gridy=11;
         frame.add(info2, gc);
+
+        //add the picture
+        //Why 4.
+        gc.gridwidth = 4;
+        gc.gridy = 12;
+        gc.gridx = 1;
+        frame.add(picLabel,gc);
 
         //frame.getContentPane().add(thePanel);
         frame.pack();
