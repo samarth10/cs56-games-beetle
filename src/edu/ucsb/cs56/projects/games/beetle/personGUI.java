@@ -111,7 +111,7 @@ public class personGUI {
      */
     public void setUpHomeScreen(){
 
-    humanPic = new ImageIcon(new ImageIcon("pictures/human.jpg").getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
+    humanPic = new ImageIcon(new ImageIcon("pictures/human.png").getImage().getScaledInstance(180, 200, Image.SCALE_DEFAULT));
     picLabel.setIcon(humanPic);  
 
 	frame.getContentPane().setBackground(new Color(255, 222, 173));
@@ -342,10 +342,10 @@ public class personGUI {
         gc.gridy = 12;
         gc.gridx = 1;
         frame.add(picLabel,gc);
-        
+
         //frame.getContentPane().add(thePanel);
         frame.pack();
-        frame.setSize(900,600);
+        frame.setSize(1000,660);
         frame.setVisible(true);
         
         
