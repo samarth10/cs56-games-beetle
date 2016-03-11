@@ -3,15 +3,15 @@
   
 	<property environment="env"/> <!-- load the environment variables --> 
   	<property name="webRoot" 	value="${env.HOME}/public_html/"/>
-  	<property name="webBaseURL" 	value="http://www.cs.ucsb.edu/~${env.USER}/cs56"/>
+  	<property name="webBaseURL" 	value="http://www.cs.ucsb.edu/~${env.USER}"/>
 	<property name="course" value="cs56" />
 	<property name="quarter" value="W16" />
 	<property name="issueNum" value="0000705" />
 	<property name="mainClass" value="edu.ucsb.cs56.projects.games.beetle.Run" />
-  	<property name="projectName" 	value="beetle"/> 
-	<property name="projectPath" value="${course}/${quarter}/issues/${issueNum}" />
-  	<property name="javadocDest" 	value="~/public_html/cs56/cs56-games-beetle/javadoc"/> 
-  	<property name="javadocURL" 	value="${webBaseURL}/${projectPath}/javadoc"/>
+  	<property name="projectName" 	value="cs56/cs56-games-beetle"/> 
+	<property name="projectPath" value="${course}/${quarter}/issues/${issueNum}"/>
+  	<property name="javadocDest" 	value="${webRoot}/${projectName}/javadoc"/> <!--"~/public_html/cs56/cs56-games-beetle/javadoc"/> -->
+  	<property name="javadocURL" 	value="${webBaseURL}/${projectName}/javadoc"/>
 	
 <target name="compile" description="compile my code">
   	<mkdir dir="build" /> <!--/edu/ucsb/cs56/projects/games" /> -->
@@ -53,15 +53,15 @@
   </copy>                                                                                        
   
   <!-- Note: this only does the chmod command on the                                             
-             javadoc subdirectory and its contents.  You MIGHT have to                                 
-             MANUALLY do the chmod on the parent directories.  However,                                
-             you should only need to do that once. -->                                                 
-  
-  <chmod dir="${javadocDest}" perm="755"  type="dir" includes="**" />                            
+  javadoc subdirectory and its contents.  You MIGHT have to                                 
+  MANUALLY do the chmod on the parent directories.  However,                                
+  you should only need to do that once. -->                                                 
+	
+	<chmod dir="${javadocDest}" perm="755"  type="dir" includes="**" />                            
 	<chmod dir="${javadocDest}" perm="755"  type="file" includes="**/*" />                         
 	<echo>Javadoc deployed to ${javadocURL}</echo>                                                 
         
-</target>        
+      </target>        
 
 <target name="test" depends="compile" description="Test the program">
   <junit haltonerror="no" haltonfailure="no">
