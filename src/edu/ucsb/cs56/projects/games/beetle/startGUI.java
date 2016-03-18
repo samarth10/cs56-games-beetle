@@ -43,14 +43,17 @@ public class startGUI {
 
     }
     /**
-     *@param playerscore      the score of the player(player 1)
-     *@param computerscore    the score of the computer(player 2)
+     * @param playerscore      the score of the player(player 1)
+     * @param computerscore    the score of the computer(player 2)
      */
     public startGUI(int playerScore, int computerScore){
     	this.playerScore = playerScore;
     	this.computerScore = computerScore;
     }
-    
+
+    /**
+     * Launches the start GUI window which includes buttons to choose the level and to exit the game
+     */
     public void setUpHomeScreen(){
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
@@ -97,7 +100,10 @@ public class startGUI {
         
         
     }
-
+    /**
+     * Action listener for the ant level button
+     * Creates an instance of antGUI and calls the setUpHomeScreen method
+     */
     class AntListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 	   if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
@@ -113,7 +119,11 @@ public class startGUI {
 	   
 	}
     }//end AntListener
-    
+
+    /**                                                                                                                                                                                                    
+     * Action listener for the beetle level button                                                                                                                             
+     * Creates an instance of beetleGUI and calls the setUpHomeScreen method                                                                                                                              
+     */
     class BeetleListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 	    if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
@@ -129,6 +139,10 @@ public class startGUI {
 	}
     }//end BeetleListener
 
+    /**                                                                                                                                                                                                    
+     * Action listener for the person level button
+     * Creates an instance of personGUI and calls the setUpHomeScreen method                                                                                                                              
+     */
     class PersonListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 	    if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
@@ -144,6 +158,10 @@ public class startGUI {
 	}
     }//end PersonListener
 
+    /**                                                                                                                                                                                                    
+     * Action listener for the ladybug level button                                                                                                                                                        
+     * Creates an instance of ladybugGUI and calls the setUpHomeScreen method                                                                                                                              
+     */
     class LadybugListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 	    if(startGUI.this.playerScore > 0 || startGUI.this.computerScore > 0){
@@ -158,7 +176,11 @@ public class startGUI {
 	    }
 	}
     }//end LadybugListener
-    
+
+    /**                                                                                                                                                                                                    
+     * Action listener for the exit button                                                                                                                                                         
+     * Closes the window and ends the game process
+     */
     class ExitListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		System.exit(0);

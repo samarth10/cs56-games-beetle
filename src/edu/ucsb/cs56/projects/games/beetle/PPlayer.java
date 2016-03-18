@@ -7,9 +7,9 @@ public class PPlayer{
     private int roll=0;
     /**
        The following ints hold the number of body
-       parts that the beetle is supposed to have.
+       parts that the person is supposed to have.
        They start off at 0 and should end up at
-       1,1,6,2,2,1 respectively in order to win.
+       1,1,2,2,1,2 respectively in order to win.
     */
     private int body=0;
     private int head=0;

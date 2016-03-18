@@ -78,21 +78,37 @@ public class ladybugGUI {
     LPlayer computer = new LPlayer();
     Game game = new Game();
 
+    //add images
+    ImageIcon lbPic;
+    JLabel picLabel = new JLabel();
+
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
 
     /**
+     * no-arg constuctor for the ladybug GUI
      */
     public ladybugGUI(){
 
     }
+    /**
+     * Overloaded constructor with parameters for scores
+     * @param playerScore the score of the player(player 1)
+     * @param computerScore the score of the computer(player 2)
+     */
     public ladybugGUI(int playerScore, int computerScore){
 	game.setScore(0, playerScore);
 	game.setScore(1, computerScore);
     }
     
-    
+    /**
+     * Sets up the ladybug GUI window and launches the Single/Multi Player windoe
+     */
     public void setUpHomeScreen(){
+
+    lbPic = new ImageIcon(new ImageIcon("pictures/ladybug.jpg").getImage().getScaledInstance(200, 150, Image.SCALE_DEFAULT));
+    picLabel.setIcon(lbPic);       
+
 
 	frame.getContentPane().setBackground(new Color(255, 75, 75));
 
@@ -318,6 +334,13 @@ public class ladybugGUI {
         gc.gridy=11;
         frame.add(info2, gc);
 
+        //add the picture
+        //Why 4.
+        gc.gridwidth = 4;
+        gc.gridy = 12;
+        gc.gridx = 1;
+        frame.add(picLabel,gc);
+
         //frame.getContentPane().add(thePanel);
         frame.pack();
         frame.setSize(900,600);
@@ -325,7 +348,10 @@ public class ladybugGUI {
         
         
     }
-    
+
+    /**
+     * Action Listener for rolling on the ladybug GUI window
+     */
     class RollListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
 	    // Roll for both players and append the propper text to the text scroll panel
@@ -439,6 +465,10 @@ public class ladybugGUI {
             
         }
     }//end RollListener
+
+    /**
+     * Action Listener for exiting the ladybug GUI window  
+     */
     class ExitListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		System.exit(0);

@@ -23,6 +23,8 @@ import javax.swing.*;
  *
  * @author Dennis
  * @author Kevin Jih
+ * @author Justin Nguyen
+ * @author Alexander Kang
  */
 public class personGUI {
     JFrame frame = new JFrame("Person Dice Rolling Game");
@@ -81,14 +83,21 @@ public class personGUI {
     PPlayer computer = new PPlayer();
     Game game = new Game();
 
+     //add images
+    ImageIcon humanPic;
+    JLabel picLabel = new JLabel();
+
     JLabel playerScore = new JLabel("Player has won: ");
     JLabel computerScore = new JLabel("Computer has won: ");
-    
+
+    /**
+     * no-arg constructor for the person GUI
+     */
     public personGUI(){
 
     }
      /**
-      * Overloaded constructor so g
+      * Overloaded constructor with parameters for scores
       * @param playerscore      the score of the player(player 1)
       * @param computerscore    the score of the computer(player 2)
      */
@@ -97,8 +106,13 @@ public class personGUI {
 	game.setScore(1, computerScore);
     }
     
-    
+    /**
+     * Sets up person GUi window and launches the Single/Multi Player window
+     */
     public void setUpHomeScreen(){
+
+    humanPic = new ImageIcon(new ImageIcon("pictures/human.png").getImage().getScaledInstance(180, 200, Image.SCALE_DEFAULT));
+    picLabel.setIcon(humanPic);  
 
 	frame.getContentPane().setBackground(new Color(255, 222, 173));
 	
@@ -322,13 +336,23 @@ public class personGUI {
         gc.gridy=11;
         frame.add(info2, gc);
 
+        //add the picture
+        //Why 4.
+        gc.gridwidth = 4;
+        gc.gridy = 12;
+        gc.gridx = 1;
+        frame.add(picLabel,gc);
+
         //frame.getContentPane().add(thePanel);
         frame.pack();
-        frame.setSize(900,600);
+        frame.setSize(1000,660);
         frame.setVisible(true);
         
         
     }
+    /**
+     * Action Listener for rolling on the person GUI window
+     */
     
     class RollListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
@@ -455,6 +479,10 @@ public class personGUI {
             
         }
     }//end RollListener
+
+    /**
+     * Action Listener for exiting the person GUI window
+     */
     class ExitListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		System.exit(0);

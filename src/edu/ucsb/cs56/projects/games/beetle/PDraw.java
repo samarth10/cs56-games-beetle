@@ -40,6 +40,7 @@ public class PDraw extends GeneralPathWrapper implements Shape
     private int mouth=0;
     private int arms=0;
 
+    
     public PDraw(int body, int head, int legs, int eyes, int mouth, int arms)
     {
 	Line2D.Double b = new Line2D.Double(50,50,50,150);
