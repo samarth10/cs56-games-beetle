@@ -1,6 +1,9 @@
 # cs56-games-beetle
 
-W16 READY Hanna
+## Authors
+
+* W16 READY Hanna
+* F16 Yuanqi Samarth
 
 ## Project Description
 
