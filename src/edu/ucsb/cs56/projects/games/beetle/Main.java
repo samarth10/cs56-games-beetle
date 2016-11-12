@@ -10,6 +10,7 @@ import java.awt.*;
  * @author Justin Nguyen
  * @author Alex Kang
  * @author Yuanqi Li
+ * @author Samarth Goyal
  */
 public class Main {
 
@@ -19,9 +20,14 @@ public class Main {
 
     private Player player1, player2;
     private int player1Score = 0, player2Score = 0;
-    private String player1Name = "Phill", player2Name = "Alex";
+    private String player1Name = "Player1", player2Name = "Computer";
     private int gameType = 0;
     private int numPlayer = 1;
+
+
+    public void setGameType(int num) {
+        this.gameType = num;
+    }
 
     public Main(int player1Score, int player2Score) {
         this.player1Score = player1Score;
@@ -54,6 +60,7 @@ public class Main {
         gc.gridy = 5; panel.add(exit, gc);
 
         frame.getContentPane().add(panel, BorderLayout.CENTER);
+        panel.setBackground(new Color(0,155,100));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Beetle Game");
         frame.setSize(640, 480);
@@ -88,15 +95,25 @@ public class Main {
     private void mainFrame() {
 
         JFrame frame = new JFrame();
+        ImageIcon picture;
+        JLabel picLabel = new JLabel();
 
         GridBagConstraints gc = new GridBagConstraints();
         gc.gridwidth = 2;
 
         switch (gameType) {
-            case 0: player1 = new Ant(player1Name); player2 = new Ant(player2Name); break;
-            case 1: player1 = new Beetle(player1Name); player2 = new Beetle(player2Name); break;
-            case 2: player1 = new Ladybug(player1Name); player2 = new Ladybug(player2Name); break;
-            case 3: player1 = new Person(player1Name); player2 = new Person(player2Name); break;
+            case 0: player1 = new Ant(player1Name); player2 = new Ant(player2Name);
+                    picture = new ImageIcon(new ImageIcon("pictures/ant.jpg").getImage().getScaledInstance(200,150, Image.SCALE_DEFAULT));
+                    picLabel.setIcon(picture); break;
+            case 1: player1 = new Beetle(player1Name); player2 = new Beetle(player2Name);
+                    picture = new ImageIcon(new ImageIcon("pictures/beetle.png").getImage().getScaledInstance(200,150, Image.SCALE_DEFAULT));
+                    picLabel.setIcon(picture); break;
+            case 2: player1 = new Ladybug(player1Name); player2 = new Ladybug(player2Name);
+                    picture = new ImageIcon(new ImageIcon("pictures/ladybug.jpg").getImage().getScaledInstance(200,150, Image.SCALE_DEFAULT));
+                    picLabel.setIcon(picture); break;
+            case 3: player1 = new Person(player1Name); player2 = new Person(player2Name);
+                    picture = new ImageIcon(new ImageIcon("pictures/human.png").getImage().getScaledInstance(200,150, Image.SCALE_DEFAULT));
+                    picLabel.setIcon(picture); break;
         }
 
         // Set player 1 score boards
@@ -183,6 +200,7 @@ public class Main {
         roll.setAlignmentX(Component.CENTER_ALIGNMENT);
         exit.setAlignmentX(Component.CENTER_ALIGNMENT);
         info.setAlignmentX(Component.CENTER_ALIGNMENT);
+        picLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         String infoStr = "";
         for (int i = 0; i < 6; i++)
@@ -192,6 +210,7 @@ public class Main {
         controlPanel.add(roll);
         controlPanel.add(exit);
         controlPanel.add(info);
+        controlPanel.add(picLabel);
 
         // Create the main window
         frame.getContentPane().add(p1Board, BorderLayout.WEST);
@@ -200,7 +219,7 @@ public class Main {
         frame.getContentPane().add(display, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle("Beetle Game");
-        frame.setSize(640, 480);
+        frame.setSize(750, 480);
         frame.setResizable(false);
         frame.setVisible(true);
     }
@@ -216,10 +235,15 @@ public class Main {
 
         frame.setVisible(false);
 
-        if (isContinue == 1)
-            System.exit(0);
-        else
+        if (isContinue == 1) {
+           System.exit(0);
+        } else {
+            Object[] choices = {"Ant", "Beetle", "Ladybug", "Person"};
+            int option = JOptionPane.showOptionDialog(frame, "Enter a new game mode.", "Enter a new game mode", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+            setGameType(option);
             mainFrame();
+
+        }
     }
 }
 
