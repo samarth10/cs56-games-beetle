@@ -200,7 +200,7 @@ public class Main {
         roll.setAlignmentX(Component.CENTER_ALIGNMENT);
         exit.setAlignmentX(Component.CENTER_ALIGNMENT);
         info.setAlignmentX(Component.CENTER_ALIGNMENT);
-        picLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        picLabel.setAlignmentX(Component.CENTER_ALIGNMENT);     //align the image for the game
 
         String infoStr = "";
         for (int i = 0; i < 6; i++)
@@ -210,7 +210,7 @@ public class Main {
         controlPanel.add(roll);
         controlPanel.add(exit);
         controlPanel.add(info);
-        controlPanel.add(picLabel);
+        controlPanel.add(picLabel);         //add the image for the game
 
         // Create the main window
         frame.getContentPane().add(p1Board, BorderLayout.WEST);
@@ -238,11 +238,11 @@ public class Main {
         if (isContinue == 1) {
            System.exit(0);
         } else {
+            //Choose what kind of game the user wants to play this time
             Object[] choices = {"Ant", "Beetle", "Ladybug", "Person"};
             int option = JOptionPane.showOptionDialog(frame, "Enter a new game mode.", "Enter a new game mode", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
             setGameType(option);
             mainFrame();
-
         }
     }
 }
