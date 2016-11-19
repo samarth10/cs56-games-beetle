@@ -4,11 +4,11 @@ import java.util.Random;
 
 public abstract class Player {
 
-    String name;
-    int roll;
-    int partNeed[];
-    int partPre[];
-    String partName[];
+    public String name;
+    public int roll;
+    public int partNeed[];
+    public int partPre[];
+    public String partName[];
 
     private Random randGen = new Random();
 
@@ -20,15 +20,15 @@ public abstract class Player {
 
         String message = "";
         this.roll = randGen.nextInt(6);
-        message += name + " rolled: " + Integer.toString(roll + 1) + "\n";
+        message += name + " rolled " + Integer.toString(roll + 1) + ", ";
 
         if (partPre[roll] != -1 && partNeed[partPre[roll]] != 0)
-            return message + name + " needs enough " + partName[partPre[roll]] + " first\n\n";
+            return message + "needs enough " + partName[partPre[roll]] + " first.";
         if (partNeed[roll] == 0)
-            return message + name + " already has enough " + partName[roll] + "\n\n";
+            return message + "already has enough " + partName[roll] + ".";
 
         partNeed[roll]--;
-        return message + " adds a new " + partName[roll] + "\n\n";
+        return message + "adds a new " + partName[roll] + ".";
     }
 
     /**

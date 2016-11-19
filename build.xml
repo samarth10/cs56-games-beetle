@@ -7,7 +7,7 @@
     <property name="course"      value="CS56" />
     <property name="quarter"     value="F16" />
     <property name="issueNum"    value="0000705" />
-    <property name="mainClass"   value="edu.ucsb.cs56.projects.games.Main" />
+    <property name="mainClass"   value="edu.ucsb.cs56.projects.games.BeetleGame" />
     <property name="projectName" value="cs56/cs56-games-beetle"/>
     <property name="projectPath" value="${course}/${quarter}/issues/${issueNum}"/>
     <property name="javadocDest" value="${webRoot}/${projectName}/javadoc"/>
