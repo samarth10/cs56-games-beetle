@@ -12,6 +12,12 @@ import java.awt.*;
  * @version Fall 2016, CS56, UCSB
  * @author  Yuanqi Li
  * @author  Samarth Goyal
+ * 
+ * @version Previous quarters
+ * @author Dennis
+ * @author Kevin Jih
+ * @author Justin Nguyen
+ * @author Alex Kang
  */
 class GuiBased {
 
