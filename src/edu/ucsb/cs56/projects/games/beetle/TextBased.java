@@ -8,6 +8,7 @@ import edu.ucsb.cs56.projects.games.beetle.player.Person;
 import java.util.Scanner;
 
 /**
+ * Class for the Text based version of the game.
  * @version Fall 2016, CS56, UCSB
  * @author  Yuanqi Li
  * @author  Samarth Goyal
