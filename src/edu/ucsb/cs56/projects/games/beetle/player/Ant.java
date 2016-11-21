@@ -1,5 +1,12 @@
 package edu.ucsb.cs56.projects.games.beetle.player;
 
+/** 
+   * This Ant class extends the Player class for the Game.
+   * @version Fall 2016, CS56, UCSB
+   * @author Yuanqi Li
+   * @author Samarth Goyal   
+*/
+
 public class Ant extends Player {
     public Ant(String name) {
         this.name = name;
