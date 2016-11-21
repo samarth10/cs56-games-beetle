@@ -1,5 +1,12 @@
 package edu.ucsb.cs56.projects.games.beetle.player;
 
+/** 
+   * This Beetle class extends the Player class for the game.
+   * @version Fall 2016, CS56, UCSB
+   * @author Yuanqi Li
+   * @author Samarth Goyal
+*/
+
 public class Beetle extends Player {
     public Beetle(String name) {
         this.name = name;
