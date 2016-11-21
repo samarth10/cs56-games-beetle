@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.projects.games.beetle;
+package edu.ucsb.cs56.projects.games;
 
 import edu.ucsb.cs56.projects.games.beetle.player.Ant;
 import edu.ucsb.cs56.projects.games.beetle.player.Beetle;
@@ -20,9 +20,9 @@ import java.awt.*;
  * @author Justin Nguyen
  * @author Alex Kang
  */
-class GuiBased {
+public class GuiBased {
 
-    private BeetleGame game;
+    public BeetleGame game;
 
     GuiBased(BeetleGame game) {
         this.game = game;
@@ -69,7 +69,7 @@ class GuiBased {
     /**
     * Choose number of players.
     */
-    private void choosePlayers(JFrame frame) {
+    public void choosePlayers(JFrame frame) {
 
         Object[] options = {"Single Player", "Two Players"};
         game.numPlayer = JOptionPane.showOptionDialog(
@@ -98,7 +98,7 @@ class GuiBased {
     * The main frame that handles all of the GUI game data. 
     */
     
-    private void mainFrame() {
+    public void mainFrame() {
 
         JFrame frame = new JFrame();
         ImageIcon picture;
@@ -243,7 +243,7 @@ class GuiBased {
     * Does the player want to play again or not?
     */
     
-    private void chooseContinue(JFrame frame, String msg) {
+    public void chooseContinue(JFrame frame, String msg) {
 
         Object[] options = {"Continue", "Exit"};
         int isContinue = JOptionPane.showOptionDialog(

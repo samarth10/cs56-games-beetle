@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.projects.games.beetle;
+package edu.ucsb.cs56.projects.games;
 import edu.ucsb.cs56.projects.games.beetle.player.*;
 
 /**

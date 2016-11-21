@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.projects.games.beetle;
+package edu.ucsb.cs56.projects.games;
 
 import edu.ucsb.cs56.projects.games.beetle.player.Ant;
 import edu.ucsb.cs56.projects.games.beetle.player.Beetle;
@@ -19,12 +19,12 @@ import java.util.Scanner;
  * @author Justin Nguyen
  * @author Alex Kang
  */
-class TextBased {
+public class TextBased {
 
     /**
      * Core class providing game data.
      */
-    private BeetleGame game;
+    public BeetleGame game;
 
     /**
      * It is used to read user input.
@@ -48,7 +48,7 @@ class TextBased {
     /**
      * Game entry point. Print the main screen and ask for user input.
      */
-    void run() {
+    public void run() {
 
         System.out.println("*************************************");
         System.out.println("                                     ");
@@ -91,7 +91,7 @@ class TextBased {
      * @param inputs defines the range of user input, which should be one of its element
      * @return a legal user input
      */
-    private char promptForChoice(String text, String inputs) {
+    public char promptForChoice(String text, String inputs) {
         String line = "";
         while (!line.matches("^[" + inputs + "]")) {
             System.out.print(text);
@@ -105,7 +105,7 @@ class TextBased {
      * @param text a string that is printed before user input
      * @return a nonempty string provided by user
      */
-    private String promptForString(String text) {
+    public String promptForString(String text) {
         String line = "";
         while (line.equals("")) {
             System.out.print(text);
@@ -118,7 +118,7 @@ class TextBased {
      * Simply prints a string and wait for a user interaction. It doesn't care about what is given.
      * @param text a string that is printed before user input
      */
-    private void promptForRoll(String text) {
+    public void promptForRoll(String text) {
         System.out.print(text);
         String line = reader.nextLine();
     }
@@ -126,7 +126,7 @@ class TextBased {
     /**
      * Start a new round.
      */
-    private void newRound() {
+    public void newRound() {
 
         if (round != 1)
             gameType = promptForChoice("Select game mode by A/B/L/P: ", "ABLP");
@@ -176,7 +176,7 @@ class TextBased {
     /**
      * Print two player's score.
      */
-    private void printScore() {
+    public void printScore() {
 
         System.out.printf("%s now has", game.p1.name);
         for (int i = 0; i < 6; i++)
@@ -193,14 +193,14 @@ class TextBased {
      * Returns if the game is end, i.e., either player wins.
      * @return true if either player wins; false if no player wins
      */
-    private boolean isEnd() {
+    public boolean isEnd() {
         return game.p1.isWin() || game.p2.isWin();
     }
 
     /**
      * Asks user whether to continue or not.
      */
-    private void isContinue() {
+    public void isContinue() {
         char choice = promptForChoice("Do you want to continue, y or n? ", "yn");
         switch (choice) {
             case 'y':
