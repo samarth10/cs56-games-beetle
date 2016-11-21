@@ -2,6 +2,7 @@ package edu.ucsb.cs56.projects.games;
 import edu.ucsb.cs56.projects.games.beetle.player.*;
 
 /**
+ * The Beetle Game - Create animals by rolling a die to get their body parts!
  * @version Fall 2016, CS56, UCSB
  * @author  Yuanqi Li
  * @author  Samarth Goyal
