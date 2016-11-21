@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * Class for the GUI based game version.
  * @version Fall 2016, CS56, UCSB
  * @author  Yuanqi Li
  * @author  Samarth Goyal
@@ -27,6 +28,10 @@ class GuiBased {
         this.game = game;
     }
 
+    /**
+    * Run the main window with the game options.
+    */
+    
     void run() {
 
         JFrame frame = new JFrame("The Beetle Game");
@@ -61,6 +66,9 @@ class GuiBased {
         frame.setVisible(true);
     }
 
+    /**
+    * Choose number of players.
+    */
     private void choosePlayers(JFrame frame) {
 
         Object[] options = {"Single Player", "Two Players"};
@@ -85,6 +93,11 @@ class GuiBased {
         mainFrame();
     }
 
+    
+    /**
+    * The main frame that handles all of the GUI game data. 
+    */
+    
     private void mainFrame() {
 
         JFrame frame = new JFrame();
@@ -225,6 +238,11 @@ class GuiBased {
         frame.setVisible(true);
     }
 
+    
+    /**
+    * Does the player want to play again or not?
+    */
+    
     private void chooseContinue(JFrame frame, String msg) {
 
         Object[] options = {"Continue", "Exit"};
