@@ -2,6 +2,13 @@ package edu.ucsb.cs56.projects.games.beetle.player;
 
 import java.util.Random;
 
+/** This class provides the base for the "types" of players you are trying to make.
+   * Ant, Beetle, Ladybug, Person (and potentially future classes) will extend Person
+   * @version Fall 2016, CS56, UCSB
+   * @author Yuanqi Li
+   * @author Samarth Goyal  
+*/
+
 public abstract class Player {
 
     public String name;
@@ -13,8 +20,8 @@ public abstract class Player {
     private Random randGen = new Random();
 
     /**
-     * Add a partHas to player based on the last roll.
-     * @return A message indicating how's going.
+     * Add a body part to the player based on the last roll.
+     * @return A message indicating what happened.
      */
     public String addPart() {
 
@@ -32,9 +39,9 @@ public abstract class Player {
     }
 
     /**
-     * Check whether the player has all of the necessary partHas to win.
+     * Checks whether the player has all of the necessary body parts to win.
      * Should be called at the end of each turn.
-     * @return True if the player win, false if not.
+     * @return True if the player wins, false if not.
      */
     public boolean isWin() {
         for (int i = 0; i < 6; i++)
@@ -43,18 +50,38 @@ public abstract class Player {
         return true;
     }
 
+    /**
+    * Returns the name of the player.
+    * @return player name
+    */
+    
     public String getName() {
         return name;
     }
 
+    /**
+    * Returns the roll of the die.
+    * @return number the die rolled
+    */
+    
     public int getRoll() {
         return roll;
     }
 
+    /**
+    * Returns the number of the part needed.
+    * @return number of the part needed
+    */
+    
     public int getPartNeed(int i) {
         return partNeed[i];
     }
 
+    /**
+    * Returns the name of the body part.
+    * @return name of the body part
+    */
+    
     public String getPartName(int i) {
         return partName[i];
     }
