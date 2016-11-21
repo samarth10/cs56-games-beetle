@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.projects.games;
+package edu.ucsb.cs56.projects.games.beetle;
 
 import edu.ucsb.cs56.projects.games.beetle.player.Ant;
 import edu.ucsb.cs56.projects.games.beetle.player.Beetle;
