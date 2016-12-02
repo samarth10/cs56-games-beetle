@@ -22,10 +22,10 @@ There is a Run.java file which initially starts the game by opening up the start
 
 ## Screenshots
 
-![alt tag](https://github.com/JNguyen96/cs56-games-beetle/blob/patch-2/gamePictures/StartScreen.png)
-![alt tag](https://github.com/JNguyen96/cs56-games-beetle/blob/patch-2/gamePictures/PlayerSelectScreen.png)
-![alt tag](https://github.com/JNguyen96/cs56-games-beetle/blob/patch-2/gamePictures/GameScreen.png)
-![alt tag](https://github.com/JNguyen96/cs56-games-beetle/blob/patch-2/gamePictures/GameEndScreen.png)
+![StartScreen](./gamePictures/StartScreen.png)
+![PlayerSelectScreen](./gamePictures/PlayerSelectScreen.png)
+![GameScreen](./gamePictures/GameScreen.png)
+![GameEndScreen](./gamePictures/GameEndScreen.png)
 
 ## F16 Final Remarks
 
